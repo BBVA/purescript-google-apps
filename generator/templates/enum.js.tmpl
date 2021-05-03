@@ -1,14 +1,29 @@
+{% if parents and parents|selectattr("is_global")|first %}
 {% for p in properties -%}
 exports.{{ p.name.as_camel_case }}Foreign = function() {
-  return {{p.name._meta.original}};
+  return {{(parents|selectattr("is_global")|first).name._meta.original}}.{{((parents|selectattr("is_global")|first).properties|selectattr("url", "eq", url)|first).name._meta.original}}.{{p.name._meta.original}};
 }
 {% endfor %}
 exports.js2psImpl = function(a, e) {
   switch (e) {
   {%- for p in properties %}
-  case {{p.name._meta.original}}:
+  case {{(parents|selectattr("is_global")|first).name._meta.original}}.{{((parents|selectattr("is_global")|first).properties|selectattr("url", "eq", url)|first).name._meta.original}}.{{p.name._meta.original}}:
     return a[{{loop.index0}}];
   {%- endfor %}
   }
 }
-
+{% else %}{# IF THERE ARE NO PARENTS IT MUST BE PASSED AROUND #}
+{% for p in properties -%}
+exports.{{ p.name.as_camel_case }}Foreign = function(obj) {
+  return obj.{{p.name._meta.original}};
+}
+{% endfor %}
+exports.js2psImpl = function(obj, a, e) {
+  switch (e) {
+  {%- for p in properties %}
+  case obj.{{p.name._meta.original}}:
+    return a[{{loop.index0}}];
+  {%- endfor %}
+  }
+}
+{% endif %}

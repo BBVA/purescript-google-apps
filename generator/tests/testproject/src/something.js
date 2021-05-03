@@ -1,40 +1,41 @@
+
 exports.cdataForeign = function() {
-  return CDATA;
+  return SomeParentApp.ContentType.CDATA;
 }
 exports.commentForeign = function() {
-  return COMMENT;
+  return SomeParentApp.ContentType.COMMENT;
 }
 exports.doctypeForeign = function() {
-  return DOCTYPE;
+  return SomeParentApp.ContentType.DOCTYPE;
 }
 exports.elementForeign = function() {
-  return ELEMENT;
+  return SomeParentApp.ContentType.ELEMENT;
 }
 exports.entityrefForeign = function() {
-  return ENTITYREF;
+  return SomeParentApp.ContentType.ENTITYREF;
 }
 exports.processinginstructionForeign = function() {
-  return PROCESSINGINSTRUCTION;
+  return SomeParentApp.ContentType.PROCESSINGINSTRUCTION;
 }
 exports.textForeign = function() {
-  return TEXT;
+  return SomeParentApp.ContentType.TEXT;
 }
 
 exports.js2psImpl = function(a, e) {
   switch (e) {
-  case CDATA:
+  case SomeParentApp.ContentType.CDATA:
     return a[0];
-  case COMMENT:
+  case SomeParentApp.ContentType.COMMENT:
     return a[1];
-  case DOCTYPE:
+  case SomeParentApp.ContentType.DOCTYPE:
     return a[2];
-  case ELEMENT:
+  case SomeParentApp.ContentType.ELEMENT:
     return a[3];
-  case ENTITYREF:
+  case SomeParentApp.ContentType.ENTITYREF:
     return a[4];
-  case PROCESSINGINSTRUCTION:
+  case SomeParentApp.ContentType.PROCESSINGINSTRUCTION:
     return a[5];
-  case TEXT:
+  case SomeParentApp.ContentType.TEXT:
     return a[6];
   }
 }

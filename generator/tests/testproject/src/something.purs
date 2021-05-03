@@ -5,7 +5,9 @@ module Data.Google.Apps.XmlService.ContentType (
   ps2js
 ) where
 
+
 import Data.Function.Uncurried (Fn2, runFn2)
+
 
 data ContentType = 
    Cdata  -- An XML CDATASection node.
@@ -18,6 +20,7 @@ data ContentType =
 
 foreign import data ContentTypeForeign :: Type
 
+
 foreign import cdataForeign :: ContentTypeForeign
 foreign import commentForeign :: ContentTypeForeign
 foreign import doctypeForeign :: ContentTypeForeign
@@ -25,7 +28,6 @@ foreign import elementForeign :: ContentTypeForeign
 foreign import entityrefForeign :: ContentTypeForeign
 foreign import processinginstructionForeign :: ContentTypeForeign
 foreign import textForeign :: ContentTypeForeign
-
 
 foreign import js2psImpl :: Fn2 (Array ContentType) ContentTypeForeign ContentType
 
@@ -41,3 +43,4 @@ ps2js Element = elementForeign
 ps2js Entityref = entityrefForeign
 ps2js Processinginstruction = processinginstructionForeign
 ps2js Text = textForeign
+

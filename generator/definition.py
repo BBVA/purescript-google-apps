@@ -3,14 +3,27 @@ import json
 
 from transnamer import Name
 
+OTHER_GLOBAL_CLASSES = {
+    'Charts'
+}
 
 def load(filename):
     with open(filename, mode='r') as f:
         return json.load(f)
 
 
-def enrich_class(entity):
+def enrich_class(entity, entities):
+    entity['is_global'] = (entity['name'].endswith('App')
+        or entity['name'].endswith('Service')
+        or entity['name'] in OTHER_GLOBAL_CLASSES
+    )
     entity['name'] = Name.from_full_camel_case(entity['name'])
+    entity['parents'] = []
+    for e in entities:
+        for p in e.get('properties', []):
+            if p['url'] == entity['url']:
+                entity['parents'].append(e)
+                break
     return entity
 
 
@@ -50,7 +63,7 @@ def enrich_property(entity, context):
 
 def enrich(entities):
     for e in entities:
-        enrich_class(e)
+        enrich_class(e, entities)
         for m in e.get('methods', []):
             enrich_method(m)
             for p in m.get('parameters', []):

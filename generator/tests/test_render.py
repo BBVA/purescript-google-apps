@@ -36,7 +36,7 @@ def test_as_enum_module_returns_appropiate_namespace():
     assert render.as_enum_module(url) == "Data.Google.Apps.XmlService.ContentType"
 
 
-def test_render_enum_compiles():
+def test_render_enum_without_parents_compiles():
     enum = enrich([{
       "url": "https://developers.google.com/apps-script/reference/xml-service/content-type",
       "name": "ContentType",
@@ -85,6 +85,69 @@ def test_render_enum_compiles():
           "url": None,
           "description": "An XML Text node."
         }
+      ]
+    }])[0]
+    assert_compilable(*render.render_enum(enum))
+
+
+def test_render_enum_with_parents_compiles():
+    enum = enrich([{
+      "url": "https://developers.google.com/apps-script/reference/xml-service/content-type",
+      "name": "ContentType",
+      "type": "enum",
+      "methods": [],
+      "properties": [
+        {
+          "name": "CDATA",
+          "type": "Enum",
+          "url": None,
+          "description": "An XML CDATASection node."
+        },
+        {
+          "name": "COMMENT",
+          "type": "Enum",
+          "url": None,
+          "description": "An XML Comment node."
+        },
+        {
+          "name": "DOCTYPE",
+          "type": "Enum",
+          "url": None,
+          "description": "An XML DocumentType node."
+        },
+        {
+          "name": "ELEMENT",
+          "type": "Enum",
+          "url": None,
+          "description": "An XML Element node."
+        },
+        {
+          "name": "ENTITYREF",
+          "type": "Enum",
+          "url": None,
+          "description": "An XML EntityReference node."
+        },
+        {
+          "name": "PROCESSINGINSTRUCTION",
+          "type": "Enum",
+          "url": None,
+          "description": "An XML ProcessingInstruction node."
+        },
+        {
+          "name": "TEXT",
+          "type": "Enum",
+          "url": None,
+          "description": "An XML Text node."
+        }
+      ]
+    },
+    {
+      "url": "https://developers.google.com/apps-script/reference/some/parent",
+      "name": "SomeParentApp",
+      "type": "class",
+      "properties": [
+        {"name": "ContentType",
+         "url": "https://developers.google.com/apps-script/reference/xml-service/content-type"}
       ]
     }])[0]
     assert_compilable(*render.render_enum(enum))

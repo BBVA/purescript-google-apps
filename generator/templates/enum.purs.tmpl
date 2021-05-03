@@ -5,7 +5,12 @@ module {{ url | as_enum_module }} (
   ps2js
 ) where
 
+{% if parents and parents|selectattr("is_global")|first %}
 import Data.Function.Uncurried (Fn2, runFn2)
+{% else %}
+import Data.Function.Uncurried (Fn3, runFn3)
+import Foreign (Foreign)
+{% endif %}
 
 data {{ name.as_full_camel_case }} = {% for p in properties %}
  {% if loop.index0 != 0 %}|{%else%} {% endif %} {{ p.name.as_full_camel_case }}  -- {{ p.description }}
@@ -13,10 +18,10 @@ data {{ name.as_full_camel_case }} = {% for p in properties %}
 
 foreign import data {{ name.as_full_camel_case }}Foreign :: Type
 
+{% if parents and parents|selectattr("is_global")|first %}
 {% for p in properties -%}
 foreign import {{ p.name.as_camel_case }}Foreign :: {{ name.as_full_camel_case }}Foreign
 {% endfor %}
-
 foreign import js2psImpl :: Fn2 (Array {{ name.as_full_camel_case }}) {{ name.as_full_camel_case }}Foreign {{ name.as_full_camel_case }}
 
 js2ps :: {{ name.as_full_camel_case }}Foreign -> {{ name.as_full_camel_case }}
@@ -27,3 +32,18 @@ ps2js :: {{ name.as_full_camel_case }} -> {{ name.as_full_camel_case }}Foreign
 {% for p in properties -%}
 ps2js {{ p.name.as_full_camel_case }} = {{ p.name.as_camel_case }}Foreign
 {% endfor %}
+{% else %}{# IF THERE ARE NO PARENTS IT MUST BE PASSED AROUND #}
+{% for p in properties -%}
+foreign import {{ p.name.as_camel_case }}Foreign :: Foreign -> {{ name.as_full_camel_case }}Foreign
+{% endfor %}
+foreign import js2psImpl :: Fn3 Foreign (Array {{ name.as_full_camel_case }}) {{ name.as_full_camel_case }}Foreign {{ name.as_full_camel_case }}
+
+js2ps :: Foreign -> {{ name.as_full_camel_case }}Foreign -> {{ name.as_full_camel_case }}
+js2ps obj = runFn3 js2psImpl obj elems
+  where elems = [{{ properties | map(attribute='name') | map(attribute='as_full_camel_case') | join(', ') }}]
+
+ps2js :: Foreign -> {{ name.as_full_camel_case }} -> {{ name.as_full_camel_case }}Foreign
+{% for p in properties -%}
+ps2js obj {{ p.name.as_full_camel_case }} = {{ p.name.as_camel_case }}Foreign obj
+{% endfor %}
+{% endif %}

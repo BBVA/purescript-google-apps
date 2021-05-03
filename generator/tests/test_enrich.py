@@ -24,7 +24,39 @@ def test_load_json_from_a_path():
 
 
 def test_enrich_class_transforms_name():
-    assert isinstance(enrich_class({'name': 'Body'})['name'], Name)
+    assert isinstance(enrich_class({'name': 'Body'}, [])['name'], Name)
+
+
+@pytest.mark.parametrize(
+    'name, is_global',
+    [('DocumentApp', True),
+     ('EquationSymbol', False),
+     ('Attribute', False),
+     ('Charts', True),
+     ('ContentService', True)]
+)
+def test_enrich_class_adds_is_global(name, is_global):
+    assert enrich_class({'name': name}, [])['is_global'] == is_global
+
+
+def test_enrich_class_links_parents():
+    ctxt = [
+         {
+           "url": "foo",
+           "name": "Foo"
+         },
+         {
+           "name": "FooBar",
+           "properties": [
+             {
+               "name": "fooProperty",
+               "url": "foo"
+             }
+           ]
+         }
+       ]
+    cls = enrich_class({"url": "foo", "name": "Foo"}, ctxt)
+    assert cls['parents'] == [ctxt[1]]
 
 
 def test_enrich_method_transforms_name():
@@ -38,8 +70,10 @@ def test_enrich_parameter_transforms_name():
 def test_enrich_property_transforms_name():
     assert isinstance(enrich_property({'name': 'LIST_ITEM'}, {})['name'], Name)
 
+
 def test_enrich_property_transforms_name2():
     assert isinstance(enrich_property({'name': 'ListItem'}, {})['name'], Name)
+
 
 def test_enrich_parameter_links_class():
     d = [
@@ -158,6 +192,7 @@ def test_enrich_whole_structure():
 
 def test_clean_invalid_class_names():
     assert clean([{'name': 'console'}]) == []
+
 
 def test_clean_array_endings_in_parameters():
     data = [{'name': 'Something', 'methods': [{'parameters': [{"name": "something[]"}]}]}]
