@@ -96,7 +96,7 @@ class GasreferenceSpider(scrapy.Spider):
         title = ''.join(response.xpath('//h1[contains(@class, "devsite-page-title")]/text()').extract())
         name = response.xpath('//span[@itemprop="name"]/text()').extract_first()
         type_ = title.lower().replace(name.lower(), "").strip()
-        if type_ != "service":
+        if type_ != "service" and ' ' not in name and name[0].isupper():
             gt = dict()
             gt['url'] = clean_url(response, response.request.url)
             gt['name'] = name
