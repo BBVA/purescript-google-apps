@@ -37,14 +37,14 @@ class Name:
 
         return cls(*tokens[:-1], original=text)
 
-    # @classmethod
-    # def from_spinal_case(cls, text):
-    #     tokens = []
-    #     for t in text.split('-'):
-    #         tokens.append(Word(t))
-    #         tokens.append(Separator('-'))
+    @classmethod
+    def from_spinal_case(cls, text):
+        tokens = []
+        for t in text.split('-'):
+            tokens.append(Word(t))
+            tokens.append(Separator('-'))
 
-    #     return cls(*tokens[:-1], original=text)
+        return cls(*tokens[:-1], original=text)
 
     @staticmethod
     def _scan_camel_case_regex(regex, text):
@@ -69,17 +69,20 @@ class Name:
     def from_full_camel_case(cls, text):
         return cls(*cls._scan_camel_case_regex(cls._full_camel_case_regex, text), original=text)
 
-    def to_snake_case(self):
+    @property
+    def as_snake_case(self):
         words = []
         for t in self._tokens:
             if isinstance(t, Word):
                 words.append(t.lower())
         return '_'.join(words)
 
-    def to_snake_case_all_caps(self):
-        return self.to_snake_case().upper()
+    @property
+    def as_snake_case_all_caps(self):
+        return self.as_snake_case.upper()
 
-    def to_camel_case(self):
+    @property
+    def as_camel_case(self):
         words = []
         is_first_word = True
         for t in self._tokens:
@@ -91,7 +94,8 @@ class Name:
                     words.append(t.capitalize())
         return ''.join(words)
 
-    def to_full_camel_case(self):
+    @property
+    def as_full_camel_case(self):
         words = []
         for t in self._tokens:
             if isinstance(t, Acronym):

@@ -1,0 +1,14 @@
+{% for p in properties -%}
+exports.{{ p.name.as_camel_case }}Foreign = function() {
+  return {{p.name._meta.original}};
+}
+{% endfor %}
+exports.js2psImpl = function(a, e) {
+  switch (e) {
+  {%- for p in properties %}
+  case {{p.name._meta.original}}:
+    return a[{{loop.index0}}];
+  {%- endfor %}
+  }
+}
+

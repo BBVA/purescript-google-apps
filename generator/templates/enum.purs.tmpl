@@ -1,0 +1,29 @@
+module {{ url | as_enum_module }} (
+  {{ name.as_full_camel_case }}(..),
+  {{ name.as_full_camel_case }}Foreign,
+  js2ps,
+  ps2js
+) where
+
+import Data.Function.Uncurried (Fn2, runFn2)
+
+data {{ name.as_full_camel_case }} = {% for p in properties %}
+ {% if loop.index0 != 0 %}|{%else%} {% endif %} {{ p.name.as_full_camel_case }}  -- {{ p.description }}
+{%- endfor %}
+
+foreign import data {{ name.as_full_camel_case }}Foreign :: Type
+
+{% for p in properties -%}
+foreign import {{ p.name.as_camel_case }}Foreign :: {{ name.as_full_camel_case }}Foreign
+{% endfor %}
+
+foreign import js2psImpl :: Fn2 (Array {{ name.as_full_camel_case }}) {{ name.as_full_camel_case }}Foreign {{ name.as_full_camel_case }}
+
+js2ps :: {{ name.as_full_camel_case }}Foreign -> {{ name.as_full_camel_case }}
+js2ps = runFn2 js2psImpl elems
+  where elems = [{{ properties | map(attribute='name') | map(attribute='as_full_camel_case') | join(', ') }}]
+
+ps2js :: {{ name.as_full_camel_case }} -> {{ name.as_full_camel_case }}Foreign
+{% for p in properties -%}
+ps2js {{ p.name.as_full_camel_case }} = {{ p.name.as_camel_case }}Foreign
+{% endfor %}

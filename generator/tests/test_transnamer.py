@@ -42,7 +42,7 @@ def test_reject_invalid_full_camel_case(txt):
      (Name.from_camel_case('wordWord'), 'WORD_WORD'),
      (Name.from_camel_case('word2Word'), 'WORD_2_WORD')])
 def test_write_snake_case_all_caps(name, expected):
-    name.to_snake_case_all_caps() == expected
+    name.as_snake_case_all_caps == expected
 
 
 @pytest.mark.parametrize(
@@ -51,7 +51,7 @@ def test_write_snake_case_all_caps(name, expected):
      (Name.from_camel_case('wordWord'), 'wordWord'),
      (Name.from_camel_case('word2Word'), 'word2Word')])
 def test_write_camel_case(name, expected):
-    name.to_camel_case() == expected
+    name.as_camel_case == expected
 
 
 @pytest.mark.parametrize(
@@ -60,4 +60,4 @@ def test_write_camel_case(name, expected):
      (Name.from_camel_case('wordWord'), 'WordWord'),
      (Name.from_camel_case('word2Word'), 'Word2Word')])
 def test_write_full_camel_case(name, expected):
-    name.to_full_camel_case() == expected
+    name.as_full_camel_case == expected

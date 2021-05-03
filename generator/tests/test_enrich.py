@@ -145,15 +145,15 @@ def test_enrich_whole_structure():
     e = enrich(d)
 
     # Name translation
-    assert e[0]['name'].to_snake_case() == 'foo'
-    assert e[0]['methods'][0]['name'].to_snake_case() == 'bar_foo'
-    assert e[0]['methods'][0]['parameters'][0]['name'].to_snake_case() == 'foo_bar'
-    assert e[0]['properties'][0]['name'].to_snake_case() == 'baz_foo'
+    assert e[0]['name'].as_snake_case == 'foo'
+    assert e[0]['methods'][0]['name'].as_snake_case == 'bar_foo'
+    assert e[0]['methods'][0]['parameters'][0]['name'].as_snake_case == 'foo_bar'
+    assert e[0]['properties'][0]['name'].as_snake_case == 'baz_foo'
 
     # Class linking
     assert e[0]['methods'][0]['parameters'][0]['cls']['url'] == 'foo'
     assert e[0]['methods'][0]['result']['cls']['url'] == 'foo'
-    assert e[0]['properties'][0]['cls']['name'].to_snake_case() == 'foo'
+    assert e[0]['properties'][0]['cls']['name'].as_snake_case == 'foo'
 
 
 def test_clean_invalid_class_names():
