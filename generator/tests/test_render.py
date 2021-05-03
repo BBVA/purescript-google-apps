@@ -28,7 +28,7 @@ def assert_compilable(*files):
             shell=True,
             cwd=testproject)
     except CalledProcessError as exc:
-        assert False, str(exc)
+        raise AssertionError from exc
 
 
 def test_as_enum_module_returns_appropiate_namespace():
@@ -147,7 +147,8 @@ def test_render_enum_with_parents_compiles():
       "type": "class",
       "properties": [
         {"name": "ContentType",
-         "url": "https://developers.google.com/apps-script/reference/xml-service/content-type"}
+         "url": "https://developers.google.com/apps-script/reference/xml-service/content-type",
+         "type": "ContentType"}
       ]
     }])[0]
     assert_compilable(*render.render_enum(enum))

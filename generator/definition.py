@@ -52,9 +52,9 @@ def enrich_result(entity, context):
 
 
 def enrich_property(entity, context):
-    try:
+    if entity['type'] == 'Enum':
         entity['name'] = Name.from_snake_case_all_caps(entity['name'])
-    except ValueError:
+    else:
         entity['name'] = Name.from_full_camel_case(entity['name'])
 
     _link_by_url(entity, context)

@@ -67,12 +67,12 @@ def test_enrich_parameter_transforms_name():
     assert isinstance(enrich_parameter({'name': 'listItem'}, {})['name'], Name)
 
 
-def test_enrich_property_transforms_name():
-    assert isinstance(enrich_property({'name': 'LIST_ITEM'}, {})['name'], Name)
+def test_enrich_property_transforms_name_enum():
+    assert isinstance(enrich_property({'name': 'LIST_ITEM', 'type': 'Enum'}, {})['name'], Name)
 
 
-def test_enrich_property_transforms_name2():
-    assert isinstance(enrich_property({'name': 'ListItem'}, {})['name'], Name)
+def test_enrich_property_transforms_name_not_enum():
+    assert isinstance(enrich_property({'name': 'ListItem', 'type': 'Other'}, {})['name'], Name)
 
 
 def test_enrich_parameter_links_class():
@@ -135,7 +135,7 @@ def test_enrich_property_links_class():
            "name": "Body",
            "properties": [
              {
-               "name": "FOO_BAR",
+               "name": "FooBar",
                "type": "Foo",
                "url": "foo",
              }
@@ -170,7 +170,7 @@ def test_enrich_whole_structure():
            "properties": [
              {
                "name": "BAZ_FOO",
-               "type": "Foo",
+               "type": "Enum",
                "url": "foo",
              }
            ]
