@@ -1,0 +1,11 @@
+module {{ url | as_data_module }} where
+
+{% if is_global %}
+import Effect (Effect)
+{% endif %}
+
+foreign import data {{ name.as_full_camel_case }} :: Type
+
+{% if is_global %}
+foreign import {{ name.as_camel_case }} :: Effect {{ name.as_full_camel_case }}
+{% endif %}

@@ -148,3 +148,5 @@ dmypy.json
 cython_debug/
 
 generator/gasapi.json
+
+generator/tests/testproject/src

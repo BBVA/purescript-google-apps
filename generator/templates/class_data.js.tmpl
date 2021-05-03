@@ -1,0 +1,5 @@
+{% if is_global %}
+exports.{{ name.as_camel_case }} = function () {
+  return {{ name.as_full_camel_case }};
+}
+{% endif %}

@@ -1,0 +1,8 @@
+module {{ url | as_control_module }} where
+
+{#
+-- TODO
+{% for m in methods %}
+{{ m.name.as_camel_case }}
+{% endfor %}
+#}

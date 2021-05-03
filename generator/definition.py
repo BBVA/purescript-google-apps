@@ -73,6 +73,7 @@ def enrich(entities):
             enrich_property(p, entities)
     return entities
 
+
 def clean(entities):
     entities = deepcopy(entities)
     result = []
