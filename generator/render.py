@@ -1,5 +1,9 @@
-import jinja2
+from functools import reduce
+from operator import add
 import os
+import textwrap
+
+import jinja2
 
 from transnamer import Name
 
@@ -18,8 +22,10 @@ def _get_module_from_url(url):
 def as_data_module(value):
     return '.'.join(list(DATA_MODULE_PATH) + _get_module_from_url(value))
 
+
 def as_control_module(value):
     return '.'.join(list(CONTROL_MODULE_PATH) + _get_module_from_url(value))
+
 
 def as_type_path(value):
     return os.path.join(*list(DATA_MODULE_PATH) + _get_module_from_url(value))
@@ -27,6 +33,59 @@ def as_type_path(value):
 
 def as_control_path(value):
     return os.path.join(*list(CONTROL_MODULE_PATH) + _get_module_from_url(value))
+
+
+def as_ps_type(value):
+    if value.get('url', None) is not None:
+        module = as_data_module(value['url'])
+        typename = module.split('.')[-1]
+        return f"{typename}.{typename}"
+    else:
+        return {
+            'void': 'Unit'
+        }.get(value['type'], value['type'])
+
+
+def as_foreign_ps_type(value):
+    if value.get('url', None) is not None:
+        module = as_data_module(value['url'])
+        typename = module.split('.')[-1]
+        if value['cls']['type'] == 'enum':
+            return f"{typename}.{typename}Foreign"
+        else:
+            return f"{typename}.{typename}"
+    else:
+        return {
+            'void': 'Unit'
+        }.get(value['type'], value['type'])
+
+
+def as_import(value):
+    module = as_data_module(value)
+    typename = module.split('.')[-1]
+    return f"import {module} as {typename}"
+
+
+def as_ps_parameter(value):
+    if 'cls' in value and value['cls']['type'] == 'enum':
+        module = as_data_module(value['cls']['url'])
+        typename = module.split('.')[-1]
+        return f"({typename}.ps2js {value['name'].as_camel_case})"
+    else:
+        return value['name'].as_camel_case
+
+
+def as_js_to_ps(value):
+    if 'cls' in value and value['cls']['type'] == 'enum':
+        module = as_data_module(value['cls']['url'])
+        typename = module.split('.')[-1]
+        return f"{typename}.js2ps <$> "
+    else:
+        return ""
+
+
+def as_ps_comment(value):
+    return '\n'.join('-- ' + t for t in textwrap.wrap(value, 77))
 
 
 def get_data_filename(entity):
@@ -37,10 +96,21 @@ def get_control_filename(entity):
     return f'{as_control_path(entity["url"])}/{entity["name"].as_full_camel_case}'
 
 
+def concat(xs):
+    return reduce(add, xs, [])
+
+
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(HERE, 'templates')))
 env.filters['as_data_module'] = as_data_module
 env.filters['as_control_module'] = as_control_module
+env.filters['as_ps_type'] = as_ps_type
+env.filters['as_foreign_ps_type'] = as_foreign_ps_type
+env.filters['as_import'] = as_import
+env.filters['as_ps_parameter'] = as_ps_parameter
+env.filters['as_js_to_ps'] = as_js_to_ps
+env.filters['as_ps_comment'] = as_ps_comment
+env.filters['concat'] = concat
 
 
 def render_enum(entity):

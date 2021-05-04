@@ -1,0 +1,5 @@
+{% for m in methods %}
+exports.{{ m.name.as_camel_case }}Impl = function() {
+  return undefined;
+}
+{% endfor %}

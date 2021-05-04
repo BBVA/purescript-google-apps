@@ -194,21 +194,12 @@ def test_render_class_data_nonglobal_compiles():
 
 
 def test_render_class_control_compiles():
-    cls = enrich([
+    e = enrich([
     {
       "url": "https://developers.google.com/apps-script/reference/some/parent",
-      "name": "SomeParent",
+      "name": "SomeParentApp",
       "type": "class",
       "methods": [
-        {
-          "name": "getId",
-          "parameters": [],
-          "result": {
-            "type": "String",
-            "url": None
-          },
-          "description": "Gets the ID of this NamedRange."
-        },
         {
           "name": "getName",
           "parameters": [],
@@ -217,6 +208,31 @@ def test_render_class_control_compiles():
             "url": None
           },
           "description": "Gets the name of this NamedRange."
+        },
+        {
+          "name": "selectNamedRange",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "String",
+              "url": None
+            },
+            {
+              "name": "day",
+              "type": "Day",
+              "url": "https://developers.google.com/apps-script/reference/document/day"
+            },
+            {
+              "name": "range",
+              "type": "Range",
+              "url": "https://developers.google.com/apps-script/reference/document/range"
+            },
+          ],
+          "result": {
+            "type": "Range",
+            "url": "https://developers.google.com/apps-script/reference/document/range"
+          },
+          "description": "Gets the range of elements associated with this NamedRange."
         },
         {
           "name": "getRange",
@@ -228,6 +244,29 @@ def test_render_class_control_compiles():
           "description": "Gets the range of elements associated with this NamedRange."
         },
         {
+          "name": "getDay",
+          "parameters": [],
+          "result": {
+            "type": "Day",
+            "url": "https://developers.google.com/apps-script/reference/document/day"
+          }
+        },
+        {
+          "name": "getOtherDay",
+          "parameters": [
+            {
+              "name": "day",
+              "type": "Day",
+              "url": "https://developers.google.com/apps-script/reference/document/day"
+            },
+          ],
+          "result": {
+            "type": "Day",
+            "url": "https://developers.google.com/apps-script/reference/document/day"
+          },
+          "description": "Get other day."
+        },
+        {
           "name": "remove",
           "parameters": [],
           "result": {
@@ -237,5 +276,41 @@ def test_render_class_control_compiles():
           "description": "Removes this NamedRange from the document."
         }
       ],
-    }])[0]
-    assert_compilable(*render.render_class_control(cls))
+      "properties": [
+        {"name": "Day",
+         "type": "Day",
+         "url": "https://developers.google.com/apps-script/reference/document/day"
+        }
+      ],
+    },
+    {
+      "url": "https://developers.google.com/apps-script/reference/document/range",
+      "name": "Range",
+      "type": "class",
+      "methods": [],
+      "properties": []
+    },
+    {
+      "url": "https://developers.google.com/apps-script/reference/document/day",
+      "name": "Day",
+      "type": "enum",
+      "methods": [],
+      "properties": [
+        {"name": "MONDAY", "type": "Enum", "url": None},
+        {"name": "TUESDAY", "type": "Enum", "url": None}
+      ]
+    },
+    ])
+    assert_compilable(*render.render_class_control(e[0]),
+                      *render.render_class_data(e[1]),
+                      *render.render_enum(e[2]))
+
+
+@pytest.mark.parametrize(
+    'jstype,pstype',
+    [({'type': 'String'}, 'String'),
+     ({'type': 'void'}, 'Unit')]
+)
+def test_as_ps_type_converts_types(jstype, pstype):
+    assert render.as_ps_type(jstype) == pstype, pstype
+
