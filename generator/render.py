@@ -35,15 +35,25 @@ def as_control_path(value):
     return os.path.join(*list(CONTROL_MODULE_PATH) + _get_module_from_url(value))
 
 
+def js_to_ps(value):
+    if value.endswith('[]'):
+        return f"(Array {js_to_ps(value[:-2])})"
+    else:
+        return {
+            'void': 'Unit',
+            'Integer': 'Int',
+            'Object': 'Foreign',
+            'Date': 'JSDate'
+        }.get(value, value)
+
+
 def as_ps_type(value):
     if value.get('url', None) is not None:
         module = as_data_module(value['url'])
         typename = module.split('.')[-1]
         return f"{typename}.{typename}"
     else:
-        return {
-            'void': 'Unit'
-        }.get(value['type'], value['type'])
+        return js_to_ps(value['type'])
 
 
 def as_foreign_ps_type(value):
@@ -55,9 +65,7 @@ def as_foreign_ps_type(value):
         else:
             return f"{typename}.{typename}"
     else:
-        return {
-            'void': 'Unit'
-        }.get(value['type'], value['type'])
+        return js_to_ps(value['type'])
 
 
 def as_import(value):

@@ -194,10 +194,141 @@ def test_clean_invalid_class_names():
     assert clean([{'name': 'console'}]) == []
 
 
-def test_clean_array_endings_in_parameters():
-    data = [{'name': 'Something', 'methods': [{'parameters': [{"name": "something[]"}]}]}]
-    expected = [{'name': 'Something', 'methods': [{'parameters': [{"name": "something"}]}]}]
+def test_clean_removes_variadic_methods():
+    d = [{'name': 'SomeClass',
+          'methods': [
+             {'name': 'someMethod',
+              'parameters': [
+                {'name': 'param',
+                 'type': 'Object...'}
+              ],
+              'result': {'type': 'String'}
+             }
+          ]
+         }
+        ]
+    expected = [{'name': 'SomeClass', 'methods': []}]
+
+    assert clean(d) == expected
+
+
+@pytest.mark.parametrize(
+    'typename',
+    ["Byte",
+     "BigNumber"])
+def test_clean_removes_methods_accepting_banned_types(typename):
+    d = [{'name': 'SomeClass',
+          'methods': [
+             {'name': 'someMethod',
+              'parameters': [
+                {'name': 'param',
+                 'type': typename}
+              ],
+              'result': {'type': 'String'}
+             }
+          ]
+         }
+        ]
+    expected = [{'name': 'SomeClass', 'methods': []}]
+
+    assert clean(d) == expected
+
+
+@pytest.mark.parametrize(
+    'typename',
+    ["Byte",
+     "BigNumber"])
+def test_clean_removes_methods_returning_banned_types(typename):
+    """ATM we don't have a way to map Byte[]"""
+    d = [{'name': 'SomeClass',
+          'methods': [
+             {'name': 'someMethod',
+              'parameters': [
+                {'name': 'param',
+                 'type': 'String'}
+              ],
+              'result': {'type': typename}
+             }
+          ]
+         }
+        ]
+    expected = [{'name': 'SomeClass', 'methods': []}]
+
+    assert clean(d) == expected
+
+
+def test_clean_rename_invalid_parameter_names():
+    data = [
+      {'name': 'Something',
+       'methods': [{'name': 'method',
+                    'parameters': [{"name": "something[]", "type": "Foo"}],
+                    'result': {'type': 'Bar'}}
+                  ]
+      }
+    ]
+    expected = [
+      {'name': 'Something',
+       'methods': [{'name': 'method',
+                    'parameters': [{"name": "something", "type": "Foo"}],
+                    'result': {'type': 'Bar'}}
+                  ]
+      }
+    ]
     assert clean(data) == expected
+
+
+@pytest.mark.parametrize('word', ['data', 'type'])
+def test_enrich_parameter_rename_parameters_with_reserved_names(word):
+    data = {"name": word}
+    assert enrich_parameter(data, [])['name'].as_camel_case == word + 'Param'
+
 
 def test_enrich_from_file():
     assert len(enrich(clean(load(os.path.join(HERE, 'api.json'))))) > 0
+
+
+def test_enrich_rename_polymorphic_methods():
+    d = [ {"name": "SomeClass",
+           "type": "class",
+           "url": None,
+           "methods": [
+             {"name": "myMethod",
+              "parameters": [],
+              "result": {"type": "String",
+                         "url": None},
+             },
+             {"name": "myMethod",
+              "parameters": [
+                {"name": "param1",
+                 "type": "String",
+                 "url": None
+                }
+              ],
+              "result": {"type": "String",
+                         "url": None},
+             },
+             {"name": "myMethod",
+              "parameters": [
+                {"name": "param1",
+                 "type": "String",
+                 "url": None
+                },
+                {"name": "param2",
+                 "type": "String[][]",
+                 "url": None
+                }
+              ],
+              "result": {"type": "String",
+                         "url": None},
+             },
+           ]
+          }
+       ]
+    result = enrich(d)
+    assert [m['name'].as_camel_case
+            for c in result
+            for m in c['methods']
+           ] == ['myMethod',
+                 'myMethodWithString',
+                 'myMethodWithStringStringarrayarray']
+

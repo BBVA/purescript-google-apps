@@ -17,11 +17,11 @@ def generate_modules(source):
     for entity in enrich(clean(json.load(source))):
         if entity['type'] == 'enum':
             yield from render.render_enum(entity)
+        elif entity['type'] == 'interface':
+            yield from render.render_class_data(entity)
         elif entity['type'] in ('class', 'service'):
             yield from render.render_class_data(entity)
             yield from render.render_class_control(entity)
-        elif entity['type'] == 'interface':
-            pass
         else:
             raise ValueError(f"Unknown entity type {entity['type']!r}")
 

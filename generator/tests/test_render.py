@@ -213,8 +213,13 @@ def test_render_class_control_compiles():
           "name": "selectNamedRange",
           "parameters": [
             {
-              "name": "name",
+              "name": "data",
               "type": "String",
+              "url": None
+            },
+            {
+              "name": "names",
+              "type": "String[]",
               "url": None
             },
             {
@@ -310,7 +315,12 @@ def test_render_class_control_compiles():
 @pytest.mark.parametrize(
     'jstype,pstype',
     [({'type': 'String'}, 'String'),
-     ({'type': 'void'}, 'Unit')]
+     ({'type': 'void'}, 'Unit'),
+     ({'type': 'Integer'}, 'Int'),
+     ({'type': 'Object'}, 'Foreign'),
+     ({'type': 'Date'}, 'JSDate'),
+     ({'type': 'Integer[]'}, '(Array Int)'),
+    ]
 )
 def test_as_ps_type_converts_types(jstype, pstype):
     assert render.as_ps_type(jstype) == pstype, pstype

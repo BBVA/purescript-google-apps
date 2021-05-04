@@ -1,10 +1,12 @@
-module {{ url | as_control_module }} (
+module {{ url | as_control_module }} {% if methods %}(
   {{ methods | map(attribute='name') | map(attribute='as_camel_case') | join(',\n  ') }}
-) where
+){% endif %} where
 
 import Prelude (Unit, (<$>))
 import Effect (Effect)
 import Effect.Uncurried
+import Foreign (Foreign)
+import Data.JSDate (JSDate)
 
 {% for url in ((methods | map(attribute='parameters') | concat) + (methods | map(attribute='result') | list) + [this]) | selectattr('url') | map(attribute='url') | unique %}
 {{ url | as_import }}

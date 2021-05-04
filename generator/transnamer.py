@@ -24,6 +24,9 @@ class Name:
         self._tokens = list(tokens)
         self._meta = meta
 
+    def add_words(self, *tokens):
+        self._tokens.extend(map(Word, tokens))
+
     @classmethod
     def from_snake_case_all_caps(cls, text):
         if not text:

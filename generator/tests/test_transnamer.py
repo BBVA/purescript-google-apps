@@ -61,3 +61,13 @@ def test_write_camel_case(name, expected):
      (Name.from_camel_case('word2Word'), 'Word2Word')])
 def test_write_full_camel_case(name, expected):
     name.as_full_camel_case == expected
+
+
+@pytest.mark.parametrize(
+    'name,extra_tokens,expected',
+    [(Name.from_camel_case('word'), ['_'], 'word_'),
+     (Name.from_camel_case('wordWord'), ['extra'], 'wordWordExtra'),
+     (Name.from_camel_case('word2Word'), ['extra', 'token'], 'word2WordExtraToken')])
+def test_add_words_include_tokens(name, extra_tokens, expected):
+    name.add_words(*extra_tokens)
+    assert name.as_camel_case == expected
