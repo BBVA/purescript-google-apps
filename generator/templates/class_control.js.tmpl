@@ -1,5 +1,5 @@
 {% for m in methods %}
-exports.{{ m.name.as_camel_case }}Impl = function() {
-  return undefined;
+exports.{{ m.name.as_camel_case }}Impl = function({{ (( m.parameters | map(attribute='name') | map(attribute='as_camel_case') | list) + ["p_"]) | join(', ') }}) {
+  return p_.{{ m.name._meta.original }}({{ m.parameters | map(attribute='name') | map(attribute='as_camel_case') | join(', ') }});
 }
 {% endfor %}

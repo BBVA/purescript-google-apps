@@ -6,22 +6,14 @@ import Prelude (Unit, (<$>))
 import Effect (Effect)
 import Effect.Uncurried
 
-{% for url in ((methods | map(attribute='parameters') | concat) + (methods | map(attribute='result') | list)) | selectattr('url') | map(attribute='url') | unique %}
+{% for url in ((methods | map(attribute='parameters') | concat) + (methods | map(attribute='result') | list) + [this]) | selectattr('url') | map(attribute='url') | unique %}
 {{ url | as_import }}
 {%- endfor %}
 
 {% for m in methods %}
-{%- if m.parameters %}
-foreign import {{ m.name.as_camel_case }}Impl :: EffectFn{{m.parameters|length}} {{ m.parameters | map('as_foreign_ps_type') | join(' ') }} {{ m.result | as_foreign_ps_type }}
-{{ m.name.as_camel_case }} :: {{ m.parameters | map('as_ps_type') | join(' -> ') }} -> Effect {{ m.result | as_ps_type }}
+foreign import {{ m.name.as_camel_case }}Impl :: EffectFn{{m.parameters|length + 1}} {{ (m.parameters + [this]) | map('as_foreign_ps_type') | join(' ') }} {{ m.result | as_foreign_ps_type }}
 
 {% if m.description %}{{ m.description | as_ps_comment }}{% endif %}
-{{ m.name.as_camel_case }} {{ m.parameters | map(attribute='name') | map(attribute='as_camel_case') | join(' ') }} = {{ m.result | as_js_to_ps }}runEffectFn{{m.parameters|length}} {{ m.name.as_camel_case }}Impl {{ m.parameters | map('as_ps_parameter') | join(' ') }}
-{%- else %}
-foreign import {{ m.name.as_camel_case }}Impl :: Effect {{ m.result | as_foreign_ps_type }}
-
-{% if m.description %}{{ m.description | as_ps_comment }}{% endif %}
-{{ m.name.as_camel_case }} :: Effect {{ m.result | as_ps_type }}
-{{ m.name.as_camel_case }} = {{ m.result | as_js_to_ps }}{{ m.name.as_camel_case }}Impl
-{%- endif %}
+{{ m.name.as_camel_case }} :: {{ (m.parameters + [this]) | map('as_ps_type') | join(' -> ') }} -> Effect {{ m.result | as_ps_type }}
+{{ m.name.as_camel_case }} {{ m.parameters | map(attribute='name') | map(attribute='as_camel_case') | join(' ') }} p' = {{ m.result | as_js_to_ps }}runEffectFn{{m.parameters|length + 1}} {{ m.name.as_camel_case }}Impl {{ m.parameters | map('as_ps_parameter') | join(' ') }} p'
 {% endfor %}

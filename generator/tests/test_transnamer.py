@@ -1,4 +1,4 @@
-from transnamer import Name
+from generator.transnamer import Name
 
 import pytest
 

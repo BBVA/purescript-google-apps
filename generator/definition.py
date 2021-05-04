@@ -1,7 +1,7 @@
 from copy import deepcopy
 import json
 
-from transnamer import Name
+from generator.transnamer import Name
 
 OTHER_GLOBAL_CLASSES = {
     'Charts'

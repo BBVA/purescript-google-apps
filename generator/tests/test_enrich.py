@@ -4,10 +4,10 @@ import os
 
 import pytest
 
-from transnamer import Name
-from definition import load, clean
-from definition import enrich_class, enrich_method, enrich_parameter
-from definition import enrich_result, enrich_property, enrich
+from generator.transnamer import Name
+from generator.definition import load, clean
+from generator.definition import enrich_class, enrich_method, enrich_parameter
+from generator.definition import enrich_result, enrich_property, enrich
 
 
 HERE = os.path.dirname(__file__)

@@ -5,9 +5,9 @@ import shutil
 
 import pytest
 
-import render
-from transnamer import Name
-from definition import enrich
+import generator.render as render
+from generator.transnamer import Name
+from generator.definition import enrich
 
 
 HERE = os.path.dirname(__file__)
@@ -196,8 +196,8 @@ def test_render_class_data_nonglobal_compiles():
 def test_render_class_control_compiles():
     e = enrich([
     {
-      "url": "https://developers.google.com/apps-script/reference/some/parent",
-      "name": "SomeParentApp",
+      "url": "https://developers.google.com/apps-script/reference/some/parent-app",
+      "name": "ParentApp",
       "type": "class",
       "methods": [
         {
@@ -301,7 +301,8 @@ def test_render_class_control_compiles():
       ]
     },
     ])
-    assert_compilable(*render.render_class_control(e[0]),
+    assert_compilable(*render.render_class_data(e[0]),
+                      *render.render_class_control(e[0]),
                       *render.render_class_data(e[1]),
                       *render.render_enum(e[2]))
 

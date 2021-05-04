@@ -5,7 +5,7 @@ import textwrap
 
 import jinja2
 
-from transnamer import Name
+from generator.transnamer import Name
 
 
 HERE = os.path.dirname(__file__)
@@ -50,7 +50,7 @@ def as_foreign_ps_type(value):
     if value.get('url', None) is not None:
         module = as_data_module(value['url'])
         typename = module.split('.')[-1]
-        if value['cls']['type'] == 'enum':
+        if value.get('cls', {}).get('type', None) == 'enum':
             return f"{typename}.{typename}Foreign"
         else:
             return f"{typename}.{typename}"
@@ -89,11 +89,11 @@ def as_ps_comment(value):
 
 
 def get_data_filename(entity):
-    return f'{as_type_path(entity["url"])}/{entity["name"].as_full_camel_case}'
+    return f'{as_type_path(entity["url"])}'
 
 
 def get_control_filename(entity):
-    return f'{as_control_path(entity["url"])}/{entity["name"].as_full_camel_case}'
+    return f'{as_control_path(entity["url"])}'
 
 
 def concat(xs):
@@ -115,19 +115,19 @@ env.filters['concat'] = concat
 
 def render_enum(entity):
     yield (f'{get_data_filename(entity)}.purs',
-           env.get_template('enum.purs.tmpl').render(**entity))
+           env.get_template('enum.purs.tmpl').render(this=entity, **entity))
     yield (f'{get_data_filename(entity)}.js',
-           env.get_template('enum.js.tmpl').render(**entity))
+           env.get_template('enum.js.tmpl').render(this=entity, **entity))
 
 
 def render_class_data(entity):
     yield (f'{get_data_filename(entity)}.purs',
-           env.get_template('class_data.purs.tmpl').render(**entity))
+           env.get_template('class_data.purs.tmpl').render(this=entity, **entity))
     yield (f'{get_data_filename(entity)}.js',
-           env.get_template('class_data.js.tmpl').render(**entity))
+           env.get_template('class_data.js.tmpl').render(this=entity, **entity))
 
 def render_class_control(entity):
     yield (f'{get_control_filename(entity)}.purs',
-           env.get_template('class_control.purs.tmpl').render(**entity))
+           env.get_template('class_control.purs.tmpl').render(this=entity, **entity))
     yield (f'{get_control_filename(entity)}.js',
-           env.get_template('class_control.js.tmpl').render(**entity))
+           env.get_template('class_control.js.tmpl').render(this=entity, **entity))
