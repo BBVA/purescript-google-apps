@@ -16,11 +16,14 @@ RESERVED_WORDS = {
     'data',
     'type',
     'Type',
+    'instance',
 }
 
 BANNED_TYPES = {
     'Byte',
-    'BigNumber'
+    'BigNumber',
+    'TargetAudience',
+    'TimeInterval'
 }
 
 def load(filename):

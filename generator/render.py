@@ -49,8 +49,9 @@ def js_to_ps(value):
 def as_qualified_ps_type(value):
     if value.get('url', None) is not None:
         module = as_data_module(value['url'])
+        alias = ''.join(module.split('.')[-2:])
         typename = module.split('.')[-1]
-        return f"{typename}.{typename}"
+        return f"{alias}.{typename}"
     else:
         return js_to_ps(value['type'])
 
@@ -58,11 +59,12 @@ def as_qualified_ps_type(value):
 def as_qualified_foreign_ps_type(value):
     if value.get('url', None) is not None:
         module = as_data_module(value['url'])
+        alias = ''.join(module.split('.')[-2:])
         typename = module.split('.')[-1]
         if value.get('cls', {}).get('type', None) == 'enum':
-            return f"{typename}.{typename}Foreign"
+            return f"{alias}.{typename}Foreign"
         else:
-            return f"{typename}.{typename}"
+            return f"{alias}.{typename}"
     else:
         return js_to_ps(value['type'])
 
@@ -90,15 +92,15 @@ def as_ps_type(value):
 
 def as_import(value):
     module = as_data_module(value)
-    typename = module.split('.')[-1]
+    typename = ''.join(module.split('.')[-2:])
     return f"import {module} as {typename}"
 
 
 def as_ps_parameter(value):
     if 'cls' in value and value['cls']['type'] == 'enum':
         module = as_data_module(value['cls']['url'])
-        typename = module.split('.')[-1]
-        return f"({typename}.ps2js {value['name'].as_camel_case})"
+        alias = ''.join(module.split('.')[-2:])
+        return f"({alias}.ps2js {value['name'].as_camel_case})"
     else:
         return value['name'].as_camel_case
 
@@ -106,8 +108,8 @@ def as_ps_parameter(value):
 def as_js_to_ps(value):
     if 'cls' in value and value['cls']['type'] == 'enum':
         module = as_data_module(value['cls']['url'])
-        typename = module.split('.')[-1]
-        return f"{typename}.js2ps <$> "
+        alias = ''.join(module.split('.')[-2:])
+        return f"{alias}.js2ps <$> "
     else:
         return ""
 
