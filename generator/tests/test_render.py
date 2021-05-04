@@ -325,3 +325,25 @@ def test_render_class_control_compiles():
 def test_as_ps_type_converts_types(jstype, pstype):
     assert render.as_ps_type(jstype) == pstype, pstype
 
+
+def test_is_accessible_true_on_built_in():
+    assert render.is_accessible({'url': None})
+
+
+def test_is_accessible_true_on_global_enums():
+    assert render.is_accessible({'url': "something",
+                                 'cls': {'is_global': True,
+                                         'type': 'enum'}})
+
+
+def test_is_accessible_true_on_class():
+    assert render.is_accessible({'url': "something",
+                                 'cls': {'is_global': False,
+                                         'type': 'class'}})
+
+
+def test_is_accessible_false_on_private_enums():
+    assert not render.is_accessible({'url': "something",
+                                     'cls': {'is_global': False,
+                                             'type': 'enum'}})
+

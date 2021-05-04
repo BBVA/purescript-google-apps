@@ -130,6 +130,10 @@ def concat(xs):
     return reduce(add, xs, [])
 
 
+def is_accessible(value):
+    return not value.get('url', None) or value.get('cls', {}).get('is_global', False) or value.get('cls', {}).get('type', None) != 'enum'
+
+
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(HERE, 'templates')))
 env.filters['as_data_module'] = as_data_module
@@ -143,6 +147,8 @@ env.filters['as_ps_parameter'] = as_ps_parameter
 env.filters['as_js_to_ps'] = as_js_to_ps
 env.filters['as_ps_comment'] = as_ps_comment
 env.filters['concat'] = concat
+env.filters['is_accessible'] = is_accessible
+env.filters['all'] = all
 
 
 def render_enum(entity):

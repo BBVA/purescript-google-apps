@@ -2,7 +2,7 @@ module {{ url | as_control_module }} {% if methods %}(
   {{ methods | map(attribute='name') | map(attribute='as_camel_case') | join(',\n  ') }}
 ){% endif %} where
 
-import Prelude (Unit, (<$>))
+import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 import Data.JSDate (JSDate)
@@ -14,7 +14,16 @@ import Data.JSDate (JSDate)
 {% for m in methods %}
 foreign import {{ m.name.as_camel_case }}Impl :: {{ (m.parameters + [this]) | map('as_qualified_foreign_ps_type') | join(' -> ') }} -> Effect {{ m.result | as_qualified_foreign_ps_type }}
 
+{% if (m.parameters + [m.result])|map('is_accessible')|all %}
 {% if m.description %}{{ m.description | as_ps_comment }}{% endif %}
 {{ m.name.as_camel_case }} :: {{ (m.parameters + [this]) | map('as_qualified_ps_type') | join(' -> ') }} -> Effect {{ m.result | as_qualified_ps_type }}
 {{ m.name.as_camel_case }} {{ m.parameters | map(attribute='name') | map(attribute='as_camel_case') | join(' ') }} p' = {{ m.result | as_js_to_ps }} {{ m.name.as_camel_case }}Impl {{ m.parameters | map('as_ps_parameter') | join(' ') }} p'
+{% else %}
+-- Some type is not directly accessible in the runtime. 
+-- TODO: Implement this
+-- {{ m.name.as_camel_case }} :: {{ (m.parameters + [this]) | map('as_qualified_ps_type') | join(' -> ') }} -> Effect {{ m.result | as_qualified_ps_type }}
+{{ m.name.as_camel_case }} :: Unit
+{{ m.name.as_camel_case }} = unit
+{% endif %}
+
 {% endfor %}
