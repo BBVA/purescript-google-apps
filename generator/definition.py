@@ -5,12 +5,17 @@ import json
 from generator.transnamer import Name
 
 OTHER_GLOBAL_CLASSES = {
-    'Charts'
+    'Charts',
+    'Utilities',
+    'Session',
+    'Logger',
+    'Browser',
 }
 
 RESERVED_WORDS = {
     'data',
-    'type'
+    'type',
+    'Type',
 }
 
 BANNED_TYPES = {
@@ -105,6 +110,8 @@ def clean(entities):
     for e in entities:
         if not e['name'][0].isupper():
             continue
+        if e['name'] in RESERVED_WORDS:
+            e['name'] += 'Type'
         e['methods'] = [m for m in e.get('methods', [])
                         if not any(_is_banned_type(p['type'])
                                    for p in m.get('parameters', []))

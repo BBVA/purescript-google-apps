@@ -46,12 +46,23 @@ def js_to_ps(value):
             'Date': 'JSDate'
         }.get(value, value)
 
-
-def as_ps_type(value):
+def as_qualified_ps_type(value):
     if value.get('url', None) is not None:
         module = as_data_module(value['url'])
         typename = module.split('.')[-1]
         return f"{typename}.{typename}"
+    else:
+        return js_to_ps(value['type'])
+
+
+def as_qualified_foreign_ps_type(value):
+    if value.get('url', None) is not None:
+        module = as_data_module(value['url'])
+        typename = module.split('.')[-1]
+        if value.get('cls', {}).get('type', None) == 'enum':
+            return f"{typename}.{typename}Foreign"
+        else:
+            return f"{typename}.{typename}"
     else:
         return js_to_ps(value['type'])
 
@@ -61,9 +72,18 @@ def as_foreign_ps_type(value):
         module = as_data_module(value['url'])
         typename = module.split('.')[-1]
         if value.get('cls', {}).get('type', None) == 'enum':
-            return f"{typename}.{typename}Foreign"
+            return f"{typename}Foreign"
         else:
-            return f"{typename}.{typename}"
+            return f"{typename}"
+    else:
+        return js_to_ps(value['type'])
+
+
+def as_ps_type(value):
+    if value.get('url', None) is not None:
+        module = as_data_module(value['url'])
+        typename = module.split('.')[-1]
+        return typename
     else:
         return js_to_ps(value['type'])
 
@@ -112,6 +132,8 @@ env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(HERE, 'templates')))
 env.filters['as_data_module'] = as_data_module
 env.filters['as_control_module'] = as_control_module
+env.filters['as_qualified_ps_type'] = as_qualified_ps_type
+env.filters['as_qualified_foreign_ps_type'] = as_qualified_foreign_ps_type
 env.filters['as_ps_type'] = as_ps_type
 env.filters['as_foreign_ps_type'] = as_foreign_ps_type
 env.filters['as_import'] = as_import

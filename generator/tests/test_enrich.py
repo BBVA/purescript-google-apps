@@ -277,6 +277,21 @@ def test_clean_rename_invalid_parameter_names():
     assert clean(data) == expected
 
 
+@pytest.mark.parametrize(
+    'original,renamed',
+    [('Type', 'TypeType')])
+def test_clean_rename_invalid_class_names(original, renamed):
+    data = [
+      {'name': original,
+       'methods': []}
+    ]
+    expected = [
+      {'name': renamed,
+       'methods': []}
+    ]
+    assert clean(data) == expected
+
+
 @pytest.mark.parametrize('word', ['data', 'type'])
 def test_enrich_parameter_rename_parameters_with_reserved_names(word):
     data = {"name": word}

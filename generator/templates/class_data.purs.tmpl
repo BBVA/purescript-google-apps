@@ -4,7 +4,7 @@ module {{ url | as_data_module }} where
 import Effect (Effect)
 {% endif %}
 
-foreign import data {{ name.as_full_camel_case }} :: Type
+foreign import data {{ this | as_foreign_ps_type }} :: Type
 
 {% if is_global %}
 foreign import {{ name.as_camel_case }} :: Effect {{ name.as_full_camel_case }}

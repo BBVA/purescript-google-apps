@@ -166,8 +166,8 @@ def test_render_enum_with_parents_compiles():
 def test_render_class_data_global_compiles():
     enum = enrich([
     {
-      "url": "https://developers.google.com/apps-script/reference/some/parent",
-      "name": "SomeParentApp",
+      "url": "https://developers.google.com/apps-script/reference/some/parent-app",
+      "name": "ParentApp",
       "type": "class",
       "properties": [
         {"name": "ContentType",
