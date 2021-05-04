@@ -35,7 +35,7 @@ def get_function_info(s):
         return (r['name'], [p.strip() for p in r['params'].split(',') if p])
 
 def get_parameters(response, method_anchor):
-    cells = response.xpath(f'//div[@id="{method_anchor}"]//table[contains(@class, "function") and contains(@class, "param")]//td')
+    cells = response.xpath(f'//div[@id="{method_anchor}"][1]//table[contains(@class, "function") and contains(@class, "param")]//td')
     col1, col2, col3 = cells[::3], cells[1::3], cells[2::3]
     for c1, c2, c3 in zip(col1, col2, col3):
         yield {'name': c1.xpath('./code//text()').extract_first(),
@@ -50,6 +50,7 @@ def get_methods(response):
     methods_with_partypes = col1.xpath('./code/a/@href')
     returns = col2.xpath('./code')
     descriptions = col3
+    anchors = set()
     for mpn, mpt, r, ds in zip(methods_with_parnames,
                                methods_with_partypes,
                                returns,
@@ -58,6 +59,10 @@ def get_methods(response):
         method_with_partypes = mpt.extract()
 
         method_anchor = method_with_partypes[method_with_partypes.index('#')+1:]
+        if method_anchor in anchors:
+            continue
+        else:
+            anchors.add(method_anchor)
         fname, _ = get_function_info(method_with_parnames)
 
         yield {'name': fname,
@@ -86,8 +91,10 @@ class GasreferenceSpider(scrapy.Spider):
     name = 'gasreference'
     allowed_domains = ['developers.google.com']
     start_urls = ['https://developers.google.com/apps-script']
+    # start_urls = ['https://developers.google.com/apps-script/reference/jdbc/jdbc-statement']
 
     def parse(self, response):
+        # yield from self.parse_reference(response)
         links = response.xpath('//a[contains(@href, "apps-script/reference/")]/@href').extract()
         for l in links:
             yield scrapy.Request(clean_url(response, l), callback=self.parse_reference)
