@@ -4,7 +4,7 @@ exports.{{ p.name.as_camel_case }}Foreign = function() {
   return {{(parents|selectattr("is_global")|first).name._meta.original}}.{{((parents|selectattr("is_global")|first).properties|selectattr("url", "eq", url)|first).name._meta.original}}.{{p.name._meta.original}};
 }
 {% endfor %}
-exports.js2psImpl = function(a, e) {
+exports.js2psImpl = (a) => (e) {
   switch (e) {
   {%- for p in properties %}
   case {{(parents|selectattr("is_global")|first).name._meta.original}}.{{((parents|selectattr("is_global")|first).properties|selectattr("url", "eq", url)|first).name._meta.original}}.{{p.name._meta.original}}:
@@ -18,7 +18,7 @@ exports.{{ p.name.as_camel_case }}Foreign = function(obj) {
   return obj.{{p.name._meta.original}};
 }
 {% endfor %}
-exports.js2psImpl = function(obj, a, e) {
+exports.js2psImpl = (obj) => (a) => (e) {
   switch (e) {
   {%- for p in properties %}
   case obj.{{p.name._meta.original}}:

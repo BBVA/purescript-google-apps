@@ -4,7 +4,6 @@ module {{ url | as_control_module }} {% if methods %}(
 
 import Prelude (Unit, (<$>))
 import Effect (Effect)
-import Effect.Uncurried
 import Foreign (Foreign)
 import Data.JSDate (JSDate)
 
@@ -13,9 +12,9 @@ import Data.JSDate (JSDate)
 {%- endfor %}
 
 {% for m in methods %}
-foreign import {{ m.name.as_camel_case }}Impl :: EffectFn{{m.parameters|length + 1}} {{ (m.parameters + [this]) | map('as_qualified_foreign_ps_type') | join(' ') }} {{ m.result | as_qualified_foreign_ps_type }}
+foreign import {{ m.name.as_camel_case }}Impl :: {{ (m.parameters + [this]) | map('as_qualified_foreign_ps_type') | join(' -> ') }} -> Effect {{ m.result | as_qualified_foreign_ps_type }}
 
 {% if m.description %}{{ m.description | as_ps_comment }}{% endif %}
 {{ m.name.as_camel_case }} :: {{ (m.parameters + [this]) | map('as_qualified_ps_type') | join(' -> ') }} -> Effect {{ m.result | as_qualified_ps_type }}
-{{ m.name.as_camel_case }} {{ m.parameters | map(attribute='name') | map(attribute='as_camel_case') | join(' ') }} p' = {{ m.result | as_js_to_ps }}runEffectFn{{m.parameters|length + 1}} {{ m.name.as_camel_case }}Impl {{ m.parameters | map('as_ps_parameter') | join(' ') }} p'
+{{ m.name.as_camel_case }} {{ m.parameters | map(attribute='name') | map(attribute='as_camel_case') | join(' ') }} p' = {{ m.result | as_js_to_ps }} {{ m.name.as_camel_case }}Impl {{ m.parameters | map('as_ps_parameter') | join(' ') }} p'
 {% endfor %}
