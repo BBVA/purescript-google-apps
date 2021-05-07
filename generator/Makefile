@@ -8,3 +8,6 @@ tdd:
 
 failing:
 	PYTHONPATH=$(PWD)/..:$$PYTHONPATH pytest -x
+
+code: gasapi.json
+	cd ..; python -m generator --destdir src/ generator/gasapi.json
