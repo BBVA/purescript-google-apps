@@ -1,0 +1,77 @@
+module Control.Google.Apps.CardService.UpdateDraftActionResponseBuilder (
+  build,
+  setUpdateDraftBccRecipientsAction,
+  setUpdateDraftBodyAction,
+  setUpdateDraftCcRecipientsAction,
+  setUpdateDraftSubjectAction,
+  setUpdateDraftToRecipientsAction
+) where
+
+import Prelude (Unit, (<$>), unit)
+import Effect (Effect)
+import Foreign (Foreign)
+import Data.JSDate (JSDate)
+
+
+import Data.Google.Apps.CardService.UpdateDraftBccRecipientsAction as CardServiceUpdateDraftBccRecipientsAction
+import Data.Google.Apps.CardService.UpdateDraftBodyAction as CardServiceUpdateDraftBodyAction
+import Data.Google.Apps.CardService.UpdateDraftCcRecipientsAction as CardServiceUpdateDraftCcRecipientsAction
+import Data.Google.Apps.CardService.UpdateDraftSubjectAction as CardServiceUpdateDraftSubjectAction
+import Data.Google.Apps.CardService.UpdateDraftToRecipientsAction as CardServiceUpdateDraftToRecipientsAction
+import Data.Google.Apps.CardService.UpdateDraftActionResponse as CardServiceUpdateDraftActionResponse
+import Data.Google.Apps.CardService.UpdateDraftActionResponseBuilder as CardServiceUpdateDraftActionResponseBuilder
+
+
+foreign import buildImpl :: CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponse.UpdateDraftActionResponse
+
+
+-- Builds the current update draft action response and validates it.
+build :: CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponse.UpdateDraftActionResponse
+build  p' =  buildImpl  p'
+
+
+
+foreign import setUpdateDraftBccRecipientsActionImpl :: CardServiceUpdateDraftBccRecipientsAction.UpdateDraftBccRecipientsAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+
+
+-- Sets an action that updates the email Bcc recipients of a draft.
+setUpdateDraftBccRecipientsAction :: CardServiceUpdateDraftBccRecipientsAction.UpdateDraftBccRecipientsAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+setUpdateDraftBccRecipientsAction updateDraftBccRecipientsAction p' =  setUpdateDraftBccRecipientsActionImpl updateDraftBccRecipientsAction p'
+
+
+
+foreign import setUpdateDraftBodyActionImpl :: CardServiceUpdateDraftBodyAction.UpdateDraftBodyAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+
+
+-- Set an action that updates the email body of a draft.
+setUpdateDraftBodyAction :: CardServiceUpdateDraftBodyAction.UpdateDraftBodyAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+setUpdateDraftBodyAction updateDraftBodyAction p' =  setUpdateDraftBodyActionImpl updateDraftBodyAction p'
+
+
+
+foreign import setUpdateDraftCcRecipientsActionImpl :: CardServiceUpdateDraftCcRecipientsAction.UpdateDraftCcRecipientsAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+
+
+-- Sets an action that updates the Cc recipients of a draft.
+setUpdateDraftCcRecipientsAction :: CardServiceUpdateDraftCcRecipientsAction.UpdateDraftCcRecipientsAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+setUpdateDraftCcRecipientsAction updateDraftCcRecipientsAction p' =  setUpdateDraftCcRecipientsActionImpl updateDraftCcRecipientsAction p'
+
+
+
+foreign import setUpdateDraftSubjectActionImpl :: CardServiceUpdateDraftSubjectAction.UpdateDraftSubjectAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+
+
+-- Sets an action that updates the subject line of a draft.
+setUpdateDraftSubjectAction :: CardServiceUpdateDraftSubjectAction.UpdateDraftSubjectAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+setUpdateDraftSubjectAction updateDraftSubjectAction p' =  setUpdateDraftSubjectActionImpl updateDraftSubjectAction p'
+
+
+
+foreign import setUpdateDraftToRecipientsActionImpl :: CardServiceUpdateDraftToRecipientsAction.UpdateDraftToRecipientsAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+
+
+-- Sets an action that updates the To recipients of a draft.
+setUpdateDraftToRecipientsAction :: CardServiceUpdateDraftToRecipientsAction.UpdateDraftToRecipientsAction -> CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder -> Effect CardServiceUpdateDraftActionResponseBuilder.UpdateDraftActionResponseBuilder
+setUpdateDraftToRecipientsAction updateDraftToRecipientsAction p' =  setUpdateDraftToRecipientsActionImpl updateDraftToRecipientsAction p'
+
+
