@@ -1,12 +1,12 @@
-# 
+#
 #  Copyright 2019 Banco Bilbao Vizcaya Argentaria, S.A.
-# 
+#
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
 #  You may obtain a copy of the License at
-# 
+#
 #      http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 #  Unless required by applicable law or agreed to in writing, software
 #  distributed under the License is distributed on an "AS IS" BASIS,
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -101,6 +101,14 @@ def get_properties(response):
                'url': clean_url(response, t.xpath('.//a/@href').extract_first()),
                'description': clean_description(d)}
 
+def get_impls(response):
+    cells = response.xpath('//table[contains(@class, "member") and contains(@class, "type") ]//td')
+    col = cells[::2]
+    for e in col:
+        name = ''.join(e.xpath('./code/a/text()').extract())
+        url = ''.join(e.xpath('./code/a/@href').extract())
+        yield {'name': name,
+               'url': url}
 
 class GasreferenceSpider(scrapy.Spider):
     name = 'gasreference'
@@ -125,6 +133,7 @@ class GasreferenceSpider(scrapy.Spider):
             gt['type'] = type_
             gt['methods'] = list(get_methods(response))
             gt['properties'] = list(get_properties(response))
+            gt['impls'] = list(get_impls(response))
             yield gt
 
         # Get more links
