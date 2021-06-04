@@ -106,7 +106,7 @@ def get_impls(response):
     col = cells[::2]
     for e in col:
         name = ''.join(e.xpath('./code/a/text()').extract())
-        url = ''.join(e.xpath('./code/a/@href').extract())
+        url = clean_url(response, e.xpath('./code/a/@href').extract_first())
         yield {'name': name,
                'url': url}
 
