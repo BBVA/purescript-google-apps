@@ -1,12 +1,12 @@
-# 
+#
 #  Copyright 2021 Banco Bilbao Vizcaya Argentaria, S.A.
-# 
+#
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
 #  You may obtain a copy of the License at
-# 
+#
 #      http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 #  Unless required by applicable law or agreed to in writing, software
 #  distributed under the License is distributed on an "AS IS" BASIS,
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -41,9 +41,25 @@ BANNED_TYPES = {
     'TimeInterval'
 }
 
+INTERFACES = dict()
+
+
 def load(filename):
     with open(filename, mode='r') as f:
         return json.load(f)
+
+
+def _do_implement_interface(entity, interface):
+    for i in interface['impls']:
+        if entity['url'] == i['url']:
+            return True
+    return False
+
+
+def _get_implemented_method(entity, name):
+    for m in entity['methods']:
+        if m['name'] == name:
+            return m
 
 
 def enrich_class(entity, entities):
@@ -58,6 +74,19 @@ def enrich_class(entity, entities):
             if p['url'] == entity['url']:
                 entity['parents'].append(e)
                 break
+        if e['type'] == 'interface' and _do_implement_interface(entity, e):
+            # get the interface information from INTERFACES
+            interface = INTERFACES[e['url']]
+            # Add methods from interface that don't exist in the class
+            # For those that already exist add a reference to the interface
+            for m in interface['methods']:
+                implemented = _get_implemented_method(entity, m['name'])
+                if implemented is not None:
+                    implemented['from'] = interface['name']
+                else:
+                    new = m.copy()
+                    new['from'] = interface['name']
+                    entity['methods'].append(new)
     return entity
 
 
@@ -139,5 +168,8 @@ def clean(entities):
                 if p['name'].endswith('[]'):
                     p['name'] = p['name'][:-2]  # Due to errors in the source
 
+        # If entity is an interface add to INTERFACES with url as key
+        if e['type'] == 'interface':
+            INTERFACES[e['url']] = deepcopy(e)
         result.append(e)
     return result
