@@ -150,3 +150,15 @@ cython_debug/
 generator/gasapi.json
 
 generator/tests/testproject/src
+
+# From pulp init
+/bower_components/
+/node_modules/
+/.pulp-cache/
+/output/
+/generated-docs/
+/.psc-package/
+/.psc*
+/.purs*
+/.psa*
+
