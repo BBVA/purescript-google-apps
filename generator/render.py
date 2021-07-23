@@ -58,7 +58,7 @@ def js_to_ps(value):
             'void': 'Unit',
             'Integer': 'Int',
             'Object': 'Foreign',
-            'Date': 'JSDate'
+            'Date': 'Foreign'
         }.get(value, value)
 
 def as_qualified_ps_type(value):
@@ -130,7 +130,7 @@ def as_js_to_ps(value):
 
 
 def as_ps_comment(value):
-    return '\n'.join('-- ' + t for t in textwrap.wrap(value, 77))
+    return '\n'.join('-- | ' + t for t in textwrap.wrap(value, 77))
 
 
 def get_data_filename(entity):

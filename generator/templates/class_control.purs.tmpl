@@ -5,7 +5,6 @@ module {{ url | as_control_module }} {% if methods %}(
 import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
-import Data.JSDate (JSDate)
 
 {% for url in ((methods | map(attribute='parameters') | concat) + (methods | map(attribute='result') | list) + [this]) | selectattr('url') | map(attribute='url') | unique %}
 {{ url | as_import }}

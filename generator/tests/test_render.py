@@ -318,7 +318,7 @@ def test_render_class_control_compiles():
      ({'type': 'void'}, 'Unit'),
      ({'type': 'Integer'}, 'Int'),
      ({'type': 'Object'}, 'Foreign'),
-     ({'type': 'Date'}, 'JSDate'),
+     ({'type': 'Date'}, 'Foreign'),
      ({'type': 'Integer[]'}, '(Array Int)'),
     ]
 )
