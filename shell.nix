@@ -17,5 +17,8 @@ pkgs.mkShell {
     pkgs.entr
     pkgs.spago
     pkgs.purescript
+    pkgs.pulp
+    pkgs.nodePackages.bower
+    pkgs.nodejs
   ];
 }
