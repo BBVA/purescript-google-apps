@@ -39,7 +39,7 @@ module Control.Google.Apps.Sites.Site (
   setTitle
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

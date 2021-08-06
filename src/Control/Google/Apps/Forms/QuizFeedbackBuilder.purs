@@ -6,9 +6,7 @@ module Control.Google.Apps.Forms.QuizFeedbackBuilder (
   setText
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Forms.QuizFeedbackBuilder as FormsQuizFeedbackBuilder

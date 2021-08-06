@@ -2,9 +2,7 @@ module Control.Google.Apps.Slides.PageRange (
   getPages
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.Page as SlidesPage

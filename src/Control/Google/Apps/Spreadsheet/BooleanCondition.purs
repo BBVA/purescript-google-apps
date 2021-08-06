@@ -11,7 +11,7 @@ module Control.Google.Apps.Spreadsheet.BooleanCondition (
   getUnderline
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

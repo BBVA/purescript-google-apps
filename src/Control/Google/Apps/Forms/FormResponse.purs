@@ -13,7 +13,6 @@ module Control.Google.Apps.Forms.FormResponse (
   withItemResponse
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

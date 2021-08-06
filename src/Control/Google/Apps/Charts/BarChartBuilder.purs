@@ -25,7 +25,7 @@ module Control.Google.Apps.Charts.BarChartBuilder (
   useLogScale
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

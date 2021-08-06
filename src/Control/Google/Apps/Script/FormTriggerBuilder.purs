@@ -4,9 +4,7 @@ module Control.Google.Apps.Script.FormTriggerBuilder (
   onOpen
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Script.Trigger as ScriptTrigger

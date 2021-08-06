@@ -6,9 +6,7 @@ module Control.Google.Apps.CardService.TimePicker (
   setTitle
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.Action as CardServiceAction

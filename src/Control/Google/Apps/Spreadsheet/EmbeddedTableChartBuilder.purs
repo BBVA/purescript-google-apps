@@ -34,7 +34,7 @@ module Control.Google.Apps.Spreadsheet.EmbeddedTableChartBuilder (
   useAlternatingRowStyle
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

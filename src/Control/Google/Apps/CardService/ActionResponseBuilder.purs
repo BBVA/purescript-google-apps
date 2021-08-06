@@ -6,9 +6,7 @@ module Control.Google.Apps.CardService.ActionResponseBuilder (
   setStateChanged
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.Navigation as CardServiceNavigation

@@ -18,7 +18,7 @@ module Control.Google.Apps.Forms.DateTimeItem (
   setTitle
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

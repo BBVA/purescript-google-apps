@@ -16,9 +16,7 @@ module Control.Google.Apps.Gmail.GmailAttachment (
   getBlob
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.Blob as BaseBlob

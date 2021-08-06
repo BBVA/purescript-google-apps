@@ -41,7 +41,7 @@ module Control.Google.Apps.Spreadsheet.EmbeddedScatterChartBuilder (
   setYAxisTitleTextStyle
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

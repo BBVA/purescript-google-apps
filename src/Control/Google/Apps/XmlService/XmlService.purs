@@ -19,9 +19,7 @@ module Control.Google.Apps.XmlService.XmlService (
   parse
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.XmlService.Element as XmlServiceElement

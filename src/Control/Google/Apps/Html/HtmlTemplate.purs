@@ -5,9 +5,7 @@ module Control.Google.Apps.Html.HtmlTemplate (
   getRawContent
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Html.HtmlOutput as HtmlHtmlOutput

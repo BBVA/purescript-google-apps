@@ -5,9 +5,8 @@ module Control.Google.Apps.Spreadsheet.DataSourceSpec (
   getType
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.BigQueryDataSourceSpec as SpreadsheetBigQueryDataSourceSpec

@@ -142,7 +142,7 @@ module Control.Google.Apps.Spreadsheet.Spreadsheet (
   waitForAllDataExecutionsCompletion
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -3,9 +3,7 @@ module Control.Google.Apps.Spreadsheet.TextRotation (
   isVertical
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.TextRotation as SpreadsheetTextRotation

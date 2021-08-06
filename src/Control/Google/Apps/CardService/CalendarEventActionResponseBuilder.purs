@@ -4,9 +4,7 @@ module Control.Google.Apps.CardService.CalendarEventActionResponseBuilder (
   setConferenceData
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.ConferenceData.ConferenceData as ConferenceDataConferenceData

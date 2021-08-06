@@ -5,9 +5,7 @@ module Control.Google.Apps.Script.StateTokenBuilder (
   withTimeout
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Script.StateTokenBuilder as ScriptStateTokenBuilder

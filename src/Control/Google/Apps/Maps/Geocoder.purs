@@ -7,7 +7,6 @@ module Control.Google.Apps.Maps.Geocoder (
   setRegion
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

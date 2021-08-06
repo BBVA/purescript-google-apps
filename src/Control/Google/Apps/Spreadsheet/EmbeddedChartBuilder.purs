@@ -24,7 +24,7 @@ module Control.Google.Apps.Spreadsheet.EmbeddedChartBuilder (
   setTransposeRowsAndColumns
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -173,9 +173,7 @@ module Control.Google.Apps.Jdbc.JdbcDatabaseMetaData (
   usesLocalFiles
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Jdbc.JdbcResultSet as JdbcJdbcResultSet

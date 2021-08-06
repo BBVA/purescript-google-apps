@@ -22,9 +22,8 @@ module Control.Google.Apps.DataStudio.Field (
   setType
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.DataStudio.AggregationType as DataStudioAggregationType

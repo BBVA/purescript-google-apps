@@ -3,7 +3,6 @@ module Control.Google.Apps.Jdbc.JdbcStruct (
   getSqlTypeName
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

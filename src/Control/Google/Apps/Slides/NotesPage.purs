@@ -18,9 +18,8 @@ module Control.Google.Apps.Slides.NotesPage (
   replaceAllTextWithStringStringBoolean
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.PlaceholderType as SlidesPlaceholderType

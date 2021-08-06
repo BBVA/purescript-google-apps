@@ -4,9 +4,7 @@ module Control.Google.Apps.Drive.FolderIterator (
   next
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Drive.Folder as DriveFolder

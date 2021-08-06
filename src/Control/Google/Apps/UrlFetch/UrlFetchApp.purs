@@ -6,7 +6,6 @@ module Control.Google.Apps.UrlFetch.UrlFetchApp (
   getRequestWithStringObjectStringObjectStringStringBooleanBooleanBooleanBooleanBoolean
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

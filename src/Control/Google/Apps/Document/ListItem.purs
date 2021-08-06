@@ -90,7 +90,7 @@ module Control.Google.Apps.Document.ListItem (
   asText
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -5,9 +5,8 @@ module Control.Google.Apps.Sites.Column (
   setName
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Sites.Page as SitesPage

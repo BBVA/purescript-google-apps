@@ -4,9 +4,7 @@ module Control.Google.Apps.Charts.Chart (
   getOptions
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.Blob as BaseBlob

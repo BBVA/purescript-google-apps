@@ -3,7 +3,6 @@ module Control.Google.Apps.Language.LanguageApp (
   translateWithStringStringStringObjectString
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

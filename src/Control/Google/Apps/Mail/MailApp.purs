@@ -6,7 +6,7 @@ module Control.Google.Apps.Mail.MailApp (
   sendEmailWithStringStringStringString
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -3,9 +3,7 @@ module Control.Google.Apps.Script.CalendarTriggerBuilder (
   onEventUpdated
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Script.Trigger as ScriptTrigger

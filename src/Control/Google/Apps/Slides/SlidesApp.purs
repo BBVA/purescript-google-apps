@@ -7,9 +7,7 @@ module Control.Google.Apps.Slides.SlidesApp (
   openByUrl
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.Presentation as SlidesPresentation

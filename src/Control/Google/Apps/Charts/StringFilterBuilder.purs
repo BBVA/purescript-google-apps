@@ -4,9 +4,8 @@ module Control.Google.Apps.Charts.StringFilterBuilder (
   setRealtimeTrigger
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Charts.MatchType as ChartsMatchType

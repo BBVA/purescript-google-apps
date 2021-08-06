@@ -5,9 +5,8 @@ module Control.Google.Apps.DataStudio.UserError (
   throwException
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.DataStudio.UserError as DataStudioUserError

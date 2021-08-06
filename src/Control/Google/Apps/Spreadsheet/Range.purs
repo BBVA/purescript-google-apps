@@ -198,7 +198,7 @@ module Control.Google.Apps.Spreadsheet.Range (
   uncheck
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

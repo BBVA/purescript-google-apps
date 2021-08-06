@@ -8,7 +8,7 @@ module Control.Google.Apps.Spreadsheet.FilterCriteria (
   getVisibleValues
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

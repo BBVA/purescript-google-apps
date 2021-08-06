@@ -6,7 +6,6 @@ module Control.Google.Apps.Maps.ElevationSampler (
   samplePathWithStringInteger
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

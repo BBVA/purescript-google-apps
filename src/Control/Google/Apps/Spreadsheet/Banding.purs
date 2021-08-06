@@ -37,9 +37,8 @@ module Control.Google.Apps.Spreadsheet.Banding (
   setSecondRowColorObject
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.Range as SpreadsheetRange

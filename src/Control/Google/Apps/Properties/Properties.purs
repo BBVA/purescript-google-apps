@@ -9,7 +9,6 @@ module Control.Google.Apps.Properties.Properties (
   setProperty
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

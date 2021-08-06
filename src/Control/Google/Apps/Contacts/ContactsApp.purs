@@ -37,7 +37,7 @@ module Control.Google.Apps.Contacts.ContactsApp (
   getContactsByUrlWithStringString
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

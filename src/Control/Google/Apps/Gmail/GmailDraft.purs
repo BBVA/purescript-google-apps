@@ -8,7 +8,7 @@ module Control.Google.Apps.Gmail.GmailDraft (
   updateWithStringStringStringObjectBlobsourcearrayStringStringStringStringObjectStringString
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

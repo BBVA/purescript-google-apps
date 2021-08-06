@@ -5,9 +5,7 @@ module Control.Google.Apps.ConferenceData.ConferenceDataService (
   newEntryPoint
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.ConferenceData.ConferenceDataBuilder as ConferenceDataConferenceDataBuilder

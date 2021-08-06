@@ -10,9 +10,7 @@ module Control.Google.Apps.Spreadsheet.TextStyle (
   isUnderline
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.TextStyleBuilder as SpreadsheetTextStyleBuilder

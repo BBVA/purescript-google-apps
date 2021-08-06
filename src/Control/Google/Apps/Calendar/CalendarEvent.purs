@@ -55,7 +55,7 @@ module Control.Google.Apps.Calendar.CalendarEvent (
   setVisibility
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -3,9 +3,7 @@ module Control.Google.Apps.CardService.FixedFooter (
   setSecondaryButton
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.TextButton as CardServiceTextButton

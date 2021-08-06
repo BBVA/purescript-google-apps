@@ -5,9 +5,7 @@ module Control.Google.Apps.Drive.User (
   getPhotoUrl
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Drive.User as DriveUser

@@ -8,9 +8,7 @@ module Control.Google.Apps.ConferenceData.ConferenceDataBuilder (
   setNotes
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.ConferenceData.ConferenceParameter as ConferenceDataConferenceParameter

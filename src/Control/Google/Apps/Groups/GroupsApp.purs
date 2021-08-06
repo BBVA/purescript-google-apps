@@ -3,9 +3,7 @@ module Control.Google.Apps.Groups.GroupsApp (
   getGroups
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Groups.Group as GroupsGroup

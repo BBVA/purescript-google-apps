@@ -3,9 +3,7 @@ module Control.Google.Apps.Html.HtmlOutputMetaTag (
   getName
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Html.HtmlOutputMetaTag as HtmlHtmlOutputMetaTag

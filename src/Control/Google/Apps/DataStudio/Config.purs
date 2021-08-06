@@ -12,7 +12,6 @@ module Control.Google.Apps.DataStudio.Config (
   setIsSteppedConfig
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

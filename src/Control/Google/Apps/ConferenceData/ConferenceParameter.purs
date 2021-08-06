@@ -3,9 +3,7 @@ module Control.Google.Apps.ConferenceData.ConferenceParameter (
   setValue
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.ConferenceData.ConferenceParameter as ConferenceDataConferenceParameter

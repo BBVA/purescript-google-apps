@@ -31,7 +31,7 @@ module Control.Google.Apps.Document.UnsupportedElement (
   asText
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -28,9 +28,7 @@ module Control.Google.Apps.Maps.StaticMap (
   setZoom
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Maps.StaticMap as MapsStaticMap

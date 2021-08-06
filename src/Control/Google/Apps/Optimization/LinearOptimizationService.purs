@@ -2,9 +2,7 @@ module Control.Google.Apps.Optimization.LinearOptimizationService (
   createEngine
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Optimization.LinearOptimizationEngine as OptimizationLinearOptimizationEngine

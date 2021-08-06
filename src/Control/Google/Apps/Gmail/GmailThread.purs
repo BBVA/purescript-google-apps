@@ -35,7 +35,6 @@ module Control.Google.Apps.Gmail.GmailThread (
   replyAllWithStringObjectStringStringStringStringStringStringBooleanBlobsourcearrayObject
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

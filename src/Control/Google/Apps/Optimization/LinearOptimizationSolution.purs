@@ -5,9 +5,8 @@ module Control.Google.Apps.Optimization.LinearOptimizationSolution (
   isValid
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Optimization.Status as OptimizationStatus

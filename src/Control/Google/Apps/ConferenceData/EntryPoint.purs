@@ -10,9 +10,8 @@ module Control.Google.Apps.ConferenceData.EntryPoint (
   setUri
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.ConferenceData.EntryPointFeature as ConferenceDataEntryPointFeature

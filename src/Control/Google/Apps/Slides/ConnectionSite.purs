@@ -3,9 +3,7 @@ module Control.Google.Apps.Slides.ConnectionSite (
   getPageElement
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.PageElement as SlidesPageElement

@@ -9,9 +9,7 @@ module Control.Google.Apps.CardService.TextInput (
   setValue
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.Action as CardServiceAction

@@ -10,9 +10,7 @@ module Control.Google.Apps.DataStudio.CommunityConnector (
   newUserError
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.DataStudio.Config as DataStudioConfig

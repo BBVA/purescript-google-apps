@@ -5,9 +5,7 @@ module Control.Google.Apps.Spreadsheet.ContainerInfo (
   getOffsetY
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.ContainerInfo as SpreadsheetContainerInfo

@@ -6,9 +6,7 @@ module Control.Google.Apps.Script.SpreadsheetTriggerBuilder (
   onOpen
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Script.Trigger as ScriptTrigger

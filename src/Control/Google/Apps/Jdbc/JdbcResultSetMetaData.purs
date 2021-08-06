@@ -22,9 +22,7 @@ module Control.Google.Apps.Jdbc.JdbcResultSetMetaData (
   isWritable
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Jdbc.JdbcResultSetMetaData as JdbcJdbcResultSetMetaData

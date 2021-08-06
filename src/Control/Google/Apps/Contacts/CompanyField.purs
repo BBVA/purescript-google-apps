@@ -8,9 +8,8 @@ module Control.Google.Apps.Contacts.CompanyField (
   setJobTitle
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Contacts.CompanyField as ContactsCompanyField

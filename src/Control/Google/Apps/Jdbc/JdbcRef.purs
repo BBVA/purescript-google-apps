@@ -4,7 +4,7 @@ module Control.Google.Apps.Jdbc.JdbcRef (
   setObject
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

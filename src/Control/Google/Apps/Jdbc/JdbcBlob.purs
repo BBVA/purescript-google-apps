@@ -10,9 +10,8 @@ module Control.Google.Apps.Jdbc.JdbcBlob (
   getBlob
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Jdbc.JdbcBlob as JdbcJdbcBlob

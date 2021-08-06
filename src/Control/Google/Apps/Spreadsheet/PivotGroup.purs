@@ -28,7 +28,7 @@ module Control.Google.Apps.Spreadsheet.PivotGroup (
   totalsAreShown
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

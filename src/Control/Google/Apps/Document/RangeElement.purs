@@ -5,9 +5,7 @@ module Control.Google.Apps.Document.RangeElement (
   isPartial
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Document.Element as DocumentElement

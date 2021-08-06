@@ -6,9 +6,8 @@ module Control.Google.Apps.Script.Trigger (
   getUniqueId
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Script.EventType as ScriptEventType

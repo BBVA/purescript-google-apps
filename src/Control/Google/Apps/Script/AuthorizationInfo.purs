@@ -3,9 +3,8 @@ module Control.Google.Apps.Script.AuthorizationInfo (
   getAuthorizationUrl
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Script.AuthorizationStatus as ScriptAuthorizationStatus

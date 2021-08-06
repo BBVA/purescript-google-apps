@@ -5,7 +5,7 @@ module Control.Google.Apps.Charts.DataTableBuilder (
   setValue
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -4,7 +4,6 @@ module Control.Google.Apps.CardService.UniversalActionResponseBuilder (
   setOpenLink
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

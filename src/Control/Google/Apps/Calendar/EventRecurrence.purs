@@ -12,7 +12,6 @@ module Control.Google.Apps.Calendar.EventRecurrence (
   setTimeZone
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

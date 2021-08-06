@@ -7,9 +7,7 @@ module Control.Google.Apps.CardService.DateTimePicker (
   setValueInMsSinceEpochWithString
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.Action as CardServiceAction

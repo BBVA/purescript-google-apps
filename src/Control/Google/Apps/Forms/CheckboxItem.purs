@@ -27,9 +27,8 @@ module Control.Google.Apps.Forms.CheckboxItem (
   showOtherOption
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Forms.Choice as FormsChoice

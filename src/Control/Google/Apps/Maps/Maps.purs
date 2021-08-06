@@ -8,9 +8,8 @@ module Control.Google.Apps.Maps.Maps (
   setAuthentication
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Maps.DirectionFinder as MapsDirectionFinder

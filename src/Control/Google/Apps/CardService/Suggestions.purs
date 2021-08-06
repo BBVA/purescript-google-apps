@@ -3,7 +3,6 @@ module Control.Google.Apps.CardService.Suggestions (
   addSuggestions
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -4,9 +4,7 @@ module Control.Google.Apps.Lock.LockService (
   getUserLock
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Lock.Lock as LockLock

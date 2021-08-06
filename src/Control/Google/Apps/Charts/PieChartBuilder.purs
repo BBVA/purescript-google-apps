@@ -16,7 +16,7 @@ module Control.Google.Apps.Charts.PieChartBuilder (
   setTitleTextStyle
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

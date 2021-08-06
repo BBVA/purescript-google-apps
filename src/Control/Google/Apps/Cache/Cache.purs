@@ -9,7 +9,7 @@ module Control.Google.Apps.Cache.Cache (
   removeAll
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

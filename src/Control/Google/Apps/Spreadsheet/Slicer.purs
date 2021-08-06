@@ -21,9 +21,8 @@ module Control.Google.Apps.Spreadsheet.Slicer (
   setTitleTextStyle
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.Color as SpreadsheetColor

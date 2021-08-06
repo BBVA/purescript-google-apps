@@ -10,9 +10,8 @@ module Control.Google.Apps.Gmail.GmailLabel (
   removeFromThreads
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Gmail.GmailThread as GmailGmailThread

@@ -26,7 +26,7 @@ module Control.Google.Apps.Calendar.RecurrenceRule (
   weekStartsOn
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

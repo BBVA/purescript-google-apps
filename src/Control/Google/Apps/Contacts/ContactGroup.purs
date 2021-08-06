@@ -9,9 +9,8 @@ module Control.Google.Apps.Contacts.ContactGroup (
   setName
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Contacts.Contact as ContactsContact

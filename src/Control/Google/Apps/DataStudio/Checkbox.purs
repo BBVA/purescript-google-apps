@@ -6,9 +6,7 @@ module Control.Google.Apps.DataStudio.Checkbox (
   setName
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.DataStudio.Checkbox as DataStudioCheckbox

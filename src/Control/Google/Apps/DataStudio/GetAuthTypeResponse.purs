@@ -5,7 +5,7 @@ module Control.Google.Apps.DataStudio.GetAuthTypeResponse (
   setHelpUrl
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

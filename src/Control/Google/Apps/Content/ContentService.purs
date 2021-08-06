@@ -3,9 +3,7 @@ module Control.Google.Apps.Content.ContentService (
   createTextOutputWithString
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Content.TextOutput as ContentTextOutput

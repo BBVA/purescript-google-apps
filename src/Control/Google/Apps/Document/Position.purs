@@ -8,9 +8,7 @@ module Control.Google.Apps.Document.Position (
   insertText
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.BlobSource as BaseBlobSource

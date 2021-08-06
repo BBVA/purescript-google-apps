@@ -4,7 +4,6 @@ module Control.Google.Apps.DataStudio.SetCredentialsResponse (
   setIsValid
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -6,9 +6,8 @@ module Control.Google.Apps.Slides.ColorScheme (
   setConcreteColorWithThemecolortypeString
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.ThemeColorType as SlidesThemeColorType

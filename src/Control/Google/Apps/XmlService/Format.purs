@@ -8,9 +8,7 @@ module Control.Google.Apps.XmlService.Format (
   setOmitEncoding
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.XmlService.Document as XmlServiceDocument

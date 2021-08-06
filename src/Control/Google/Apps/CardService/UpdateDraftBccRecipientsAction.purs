@@ -2,9 +2,7 @@ module Control.Google.Apps.CardService.UpdateDraftBccRecipientsAction (
   addUpdateBccRecipients
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.UpdateDraftBccRecipientsAction as CardServiceUpdateDraftBccRecipientsAction

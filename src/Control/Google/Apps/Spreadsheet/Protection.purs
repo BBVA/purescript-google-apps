@@ -26,9 +26,8 @@ module Control.Google.Apps.Spreadsheet.Protection (
   setWarningOnly
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.User as BaseUser

@@ -4,7 +4,7 @@ module Control.Google.Apps.CardService.Action (
   setParameters
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

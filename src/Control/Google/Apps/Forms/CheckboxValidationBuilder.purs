@@ -4,9 +4,7 @@ module Control.Google.Apps.Forms.CheckboxValidationBuilder (
   requireSelectExactly
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Forms.CheckboxValidationBuilder as FormsCheckboxValidationBuilder

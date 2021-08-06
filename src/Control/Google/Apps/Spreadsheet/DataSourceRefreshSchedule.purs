@@ -4,9 +4,8 @@ module Control.Google.Apps.Spreadsheet.DataSourceRefreshSchedule (
   isEnabled
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.DataSourceRefreshScheduleFrequency as SpreadsheetDataSourceRefreshScheduleFrequency

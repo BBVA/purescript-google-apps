@@ -3,9 +3,7 @@ module Control.Google.Apps.CardService.ComposeActionResponseBuilder (
   setGmailDraft
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Gmail.GmailDraft as GmailGmailDraft

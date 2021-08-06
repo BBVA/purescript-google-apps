@@ -45,7 +45,7 @@ module Control.Google.Apps.Calendar.CalendarApp (
   subscribeToCalendarWithStringObjectStringBooleanBoolean
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

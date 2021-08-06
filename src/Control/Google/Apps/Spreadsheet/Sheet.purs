@@ -146,7 +146,7 @@ module Control.Google.Apps.Spreadsheet.Sheet (
   updateChart
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

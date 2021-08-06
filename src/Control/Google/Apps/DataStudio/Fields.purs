@@ -11,7 +11,7 @@ module Control.Google.Apps.DataStudio.Fields (
   setDefaultMetric
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

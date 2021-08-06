@@ -4,9 +4,8 @@ module Control.Google.Apps.Spreadsheet.DataSourceParameter (
   getType
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.DataSourceParameterType as SpreadsheetDataSourceParameterType

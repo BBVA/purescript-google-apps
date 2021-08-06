@@ -21,9 +21,8 @@ module Control.Google.Apps.Html.HtmlOutput (
   setXFrameOptionsMode
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Html.SandboxMode as HtmlSandboxMode

@@ -6,7 +6,7 @@ module Control.Google.Apps.Spreadsheet.DataValidation (
   getHelpText
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

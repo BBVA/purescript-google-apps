@@ -8,9 +8,8 @@ module Control.Google.Apps.Spreadsheet.DeveloperMetadataFinder (
   withVisibility
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.DeveloperMetadataLocationType as SpreadsheetDeveloperMetadataLocationType

@@ -26,9 +26,8 @@ module Control.Google.Apps.Drive.DriveApp (
   searchFolders
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.BlobSource as BaseBlobSource

@@ -9,9 +9,8 @@ module Control.Google.Apps.CardService.CardBuilder (
   setPeekCardHeader
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.CardAction as CardServiceCardAction

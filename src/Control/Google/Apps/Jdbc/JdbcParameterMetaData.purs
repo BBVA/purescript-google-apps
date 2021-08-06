@@ -10,9 +10,7 @@ module Control.Google.Apps.Jdbc.JdbcParameterMetaData (
   isSigned
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Jdbc.JdbcParameterMetaData as JdbcJdbcParameterMetaData

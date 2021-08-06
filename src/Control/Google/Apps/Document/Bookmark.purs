@@ -4,9 +4,8 @@ module Control.Google.Apps.Document.Bookmark (
   remove
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Document.Position as DocumentPosition

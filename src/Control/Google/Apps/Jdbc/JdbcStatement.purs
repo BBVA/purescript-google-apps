@@ -39,9 +39,8 @@ module Control.Google.Apps.Jdbc.JdbcStatement (
   setQueryTimeout
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Jdbc.JdbcResultSet as JdbcJdbcResultSet

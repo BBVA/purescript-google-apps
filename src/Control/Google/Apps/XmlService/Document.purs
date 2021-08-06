@@ -17,9 +17,7 @@ module Control.Google.Apps.XmlService.Document (
   setRootElement
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.XmlService.Content as XmlServiceContent

@@ -32,9 +32,8 @@ module Control.Google.Apps.Slides.TextRange (
   setText
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.TextRange as SlidesTextRange

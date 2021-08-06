@@ -42,9 +42,8 @@ module Control.Google.Apps.Document.Document (
   setSelection
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Document.Position as DocumentPosition

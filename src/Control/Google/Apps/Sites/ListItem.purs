@@ -10,7 +10,7 @@ module Control.Google.Apps.Sites.ListItem (
   setValueByName
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -7,9 +7,8 @@ module Control.Google.Apps.CardService.CardAction (
   setText
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.AuthorizationAction as CardServiceAuthorizationAction

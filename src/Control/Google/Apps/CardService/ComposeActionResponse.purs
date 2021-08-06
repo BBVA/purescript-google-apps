@@ -2,9 +2,7 @@ module Control.Google.Apps.CardService.ComposeActionResponse (
   printJson
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.ComposeActionResponse as CardServiceComposeActionResponse

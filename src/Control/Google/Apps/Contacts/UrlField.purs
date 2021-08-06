@@ -9,7 +9,7 @@ module Control.Google.Apps.Contacts.UrlField (
   setLabelWithString
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -4,9 +4,8 @@ module Control.Google.Apps.Spreadsheet.Color (
   getColorType
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.RgbColor as BaseRgbColor

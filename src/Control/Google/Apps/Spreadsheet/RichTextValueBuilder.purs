@@ -7,9 +7,7 @@ module Control.Google.Apps.Spreadsheet.RichTextValueBuilder (
   setTextStyleWithTextstyle
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.TextStyle as SpreadsheetTextStyle

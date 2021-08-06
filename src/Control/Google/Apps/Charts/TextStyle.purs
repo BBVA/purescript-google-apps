@@ -4,9 +4,7 @@ module Control.Google.Apps.Charts.TextStyle (
   getFontSize
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Charts.TextStyle as ChartsTextStyle

@@ -66,7 +66,7 @@ module Control.Google.Apps.Gmail.GmailApp (
   unstarMessages
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

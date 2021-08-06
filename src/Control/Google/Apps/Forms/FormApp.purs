@@ -12,9 +12,7 @@ module Control.Google.Apps.Forms.FormApp (
   openByUrl
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Forms.Form as FormsForm

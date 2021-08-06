@@ -3,9 +3,8 @@ module Control.Google.Apps.CardService.UpdateDraftBodyAction (
   setUpdateType
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.ContentType as CardServiceContentType

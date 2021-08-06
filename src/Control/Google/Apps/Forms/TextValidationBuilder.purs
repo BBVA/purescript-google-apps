@@ -19,9 +19,7 @@ module Control.Google.Apps.Forms.TextValidationBuilder (
   requireWholeNumber
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Forms.TextValidationBuilder as FormsTextValidationBuilder

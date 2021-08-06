@@ -10,7 +10,7 @@ module Control.Google.Apps.Contacts.DateField (
   setLabelWithString
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -3,9 +3,8 @@ module Control.Google.Apps.ConferenceData.ConferenceError (
   setConferenceErrorType
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.ConferenceData.ConferenceErrorType as ConferenceDataConferenceErrorType

@@ -6,9 +6,8 @@ module Control.Google.Apps.Base.RgbColor (
   getRed
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.ColorType as BaseColorType

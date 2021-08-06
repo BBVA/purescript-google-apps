@@ -4,9 +4,8 @@ module Control.Google.Apps.DataStudio.DebugError (
   throwException
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.DataStudio.DebugError as DataStudioDebugError

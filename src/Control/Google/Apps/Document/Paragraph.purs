@@ -84,7 +84,7 @@ module Control.Google.Apps.Document.Paragraph (
   asText
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

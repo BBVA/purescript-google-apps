@@ -88,7 +88,7 @@ module Control.Google.Apps.Document.Body (
   removeFromParent
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

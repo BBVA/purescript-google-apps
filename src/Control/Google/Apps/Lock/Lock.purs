@@ -5,9 +5,8 @@ module Control.Google.Apps.Lock.Lock (
   waitLock
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Lock.Lock as LockLock

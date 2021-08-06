@@ -2,9 +2,7 @@ module Control.Google.Apps.CardService.ButtonSet (
   addButton
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.CardService.Button as CardServiceButton

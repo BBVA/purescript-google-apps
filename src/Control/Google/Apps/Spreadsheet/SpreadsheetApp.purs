@@ -30,9 +30,8 @@ module Control.Google.Apps.Spreadsheet.SpreadsheetApp (
   setCurrentCell
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Drive.File as DriveFile

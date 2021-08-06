@@ -2,9 +2,7 @@ module Control.Google.Apps.Slides.PageElementRange (
   getPageElements
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.PageElement as SlidesPageElement

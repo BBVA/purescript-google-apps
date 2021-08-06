@@ -7,9 +7,8 @@ module Control.Google.Apps.Spreadsheet.ColorBuilder (
   setThemeColor
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.ThemeColorType as SpreadsheetThemeColorType

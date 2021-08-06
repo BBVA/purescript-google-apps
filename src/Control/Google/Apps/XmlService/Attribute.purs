@@ -7,9 +7,7 @@ module Control.Google.Apps.XmlService.Attribute (
   setValue
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.XmlService.Namespace as XmlServiceNamespace

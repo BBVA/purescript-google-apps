@@ -18,7 +18,6 @@ module Control.Google.Apps.Charts.TableChartBuilder (
   useAlternatingRowStyle
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

@@ -6,9 +6,8 @@ module Control.Google.Apps.Spreadsheet.NamedRange (
   setRange
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.Range as SpreadsheetRange

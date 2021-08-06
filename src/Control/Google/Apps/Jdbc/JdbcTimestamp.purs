@@ -19,9 +19,8 @@ module Control.Google.Apps.Jdbc.JdbcTimestamp (
   setYear
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Jdbc.JdbcTimestamp as JdbcJdbcTimestamp

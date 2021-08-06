@@ -32,7 +32,7 @@ module Control.Google.Apps.Document.Footnote (
   merge
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

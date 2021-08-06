@@ -11,9 +11,8 @@ module Control.Google.Apps.Jdbc.JdbcTime (
   setTime
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Jdbc.JdbcTime as JdbcJdbcTime

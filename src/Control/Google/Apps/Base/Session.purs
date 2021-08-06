@@ -6,9 +6,7 @@ module Control.Google.Apps.Base.Session (
   getTemporaryActiveUserKey
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Base.User as BaseUser

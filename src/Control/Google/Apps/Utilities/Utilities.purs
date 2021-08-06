@@ -19,7 +19,7 @@ module Control.Google.Apps.Utilities.Utilities (
   zipWithBlobsourcearrayString
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

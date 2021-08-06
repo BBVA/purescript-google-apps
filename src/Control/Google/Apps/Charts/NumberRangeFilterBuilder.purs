@@ -6,9 +6,8 @@ module Control.Google.Apps.Charts.NumberRangeFilterBuilder (
   setTicks
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Charts.Orientation as ChartsOrientation

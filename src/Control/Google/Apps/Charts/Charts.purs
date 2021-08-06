@@ -11,9 +11,7 @@ module Control.Google.Apps.Charts.Charts (
   newTextStyle
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Charts.AreaChartBuilder as ChartsAreaChartBuilder

@@ -14,9 +14,8 @@ module Control.Google.Apps.XmlService.ProcessingInstruction (
   getType
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.XmlService.Content as XmlServiceContent

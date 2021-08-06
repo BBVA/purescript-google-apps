@@ -10,9 +10,7 @@ module Control.Google.Apps.Spreadsheet.RichTextValue (
   getTextStyleWithIntegerInteger
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.RichTextValueBuilder as SpreadsheetRichTextValueBuilder

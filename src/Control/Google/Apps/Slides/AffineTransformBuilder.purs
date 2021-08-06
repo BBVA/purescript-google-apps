@@ -8,9 +8,7 @@ module Control.Google.Apps.Slides.AffineTransformBuilder (
   setTranslateY
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Slides.AffineTransform as SlidesAffineTransform

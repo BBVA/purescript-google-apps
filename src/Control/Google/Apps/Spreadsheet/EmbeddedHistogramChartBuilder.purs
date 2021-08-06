@@ -40,7 +40,7 @@ module Control.Google.Apps.Spreadsheet.EmbeddedHistogramChartBuilder (
   useLogScale
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

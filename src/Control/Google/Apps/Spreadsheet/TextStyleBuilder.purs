@@ -10,9 +10,7 @@ module Control.Google.Apps.Spreadsheet.TextStyleBuilder (
   setUnderline
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.Color as SpreadsheetColor

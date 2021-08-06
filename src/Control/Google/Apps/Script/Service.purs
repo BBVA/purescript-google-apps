@@ -3,9 +3,7 @@ module Control.Google.Apps.Script.Service (
   isEnabled
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Script.Service as ScriptService

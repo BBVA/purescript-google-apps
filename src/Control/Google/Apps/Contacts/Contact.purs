@@ -53,7 +53,7 @@ module Control.Google.Apps.Contacts.Contact (
   setSuffix
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit, unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

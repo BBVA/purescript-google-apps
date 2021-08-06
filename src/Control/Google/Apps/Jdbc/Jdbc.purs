@@ -13,7 +13,6 @@ module Control.Google.Apps.Jdbc.Jdbc (
   parseTimestamp
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 

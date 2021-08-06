@@ -8,9 +8,8 @@ module Control.Google.Apps.Spreadsheet.Group (
   remove
 ) where
 
-import Prelude (Unit, (<$>), unit)
+import Prelude (Unit)
 import Effect (Effect)
-import Foreign (Foreign)
 
 
 import Data.Google.Apps.Spreadsheet.Group as SpreadsheetGroup

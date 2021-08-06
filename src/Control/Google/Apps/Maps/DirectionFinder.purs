@@ -17,7 +17,6 @@ module Control.Google.Apps.Maps.DirectionFinder (
   setRegion
 ) where
 
-import Prelude (Unit, (<$>), unit)
 import Effect (Effect)
 import Foreign (Foreign)
 
